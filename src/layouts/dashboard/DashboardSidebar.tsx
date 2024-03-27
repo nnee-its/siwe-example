@@ -1,13 +1,14 @@
+import account from "@/_mocks_/account"
+import { MHidden } from "@/components/@material-extend"
+import Logo from "@/components/Logo"
+import NavSection from "@/components/NavSection"
+import Scrollbar from "@/components/Scrollbar"
+import { useOperator } from "@/store/operator"
+import { Avatar, Box, Drawer, Link, Typography } from "@mui/material"
+import { styled } from "@mui/material/styles"
 import React, { useEffect } from "react"
 import { Link as RouterLink, useLocation } from "react-router-dom"
-import { styled } from "@mui/material/styles"
-import { Box, Link, Drawer, Typography, Avatar } from "@mui/material"
-import Logo from "@/components/Logo"
-import Scrollbar from "@/components/Scrollbar"
-import NavSection from "@/components/NavSection"
-import { MHidden } from "@/components/@material-extend"
 import sidebarConfig from "./SidebarConfig"
-import account from "@/_mocks_/account"
 
 const DRAWER_WIDTH = 280
 
@@ -32,6 +33,7 @@ interface Props {
 }
 
 const DashboardSidebar = (props: Props): JSX.Element => {
+  const { operator } = useOperator()
   const { isOpenSidebar, onCloseSidebar } = props
   const { pathname } = useLocation()
 
@@ -60,10 +62,10 @@ const DashboardSidebar = (props: Props): JSX.Element => {
             <Avatar src={account.photoURL} alt="photoURL" />
             <Box sx={{ ml: 2 }}>
               <Typography variant="subtitle2" sx={{ color: "text.primary" }}>
-                {account.displayName}
+                {operator?.name || "Unnamed"}
               </Typography>
               <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                {account.role}
+                {operator?.role}
               </Typography>
             </Box>
           </AccountStyle>

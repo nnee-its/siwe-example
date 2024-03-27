@@ -1,5 +1,5 @@
 import { wagmiConfig } from "@/config/web3"
-import { useOperatorStore } from "@/store/operator"
+import { useOperator } from "@/store/operator"
 import React, { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { SiweMessage } from "siwe"
@@ -26,7 +26,7 @@ function createSiweMessage(address: Address) {
 export default function Siwe() {
   const navigate = useNavigate()
   const account = useAccount()
-  const { setAuth, setOperator, auth, operator } = useOperatorStore()
+  const { setAuth, setOperator, auth, operator } = useOperator()
 
   useEffect(() => {
     if (account.isConnected && account.address && !auth && !operator) {
