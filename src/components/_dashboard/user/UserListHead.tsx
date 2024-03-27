@@ -1,24 +1,24 @@
-import React from "react";
-import { visuallyHidden } from "@mui/utils";
-import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel } from "@mui/material";
-import { HeaderLabel } from "@/models";
+import React from "react"
+import { visuallyHidden } from "@mui/utils"
+import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel } from "@mui/material"
+import { HeaderLabel } from "@/models"
 
 interface Props {
-  order?;
-  orderBy: string;
-  rowCount: number;
-  headLabel: HeaderLabel[];
-  numSelected: number;
-  onRequestSort;
-  onSelectAllClick;
+  order?
+  orderBy: string
+  rowCount: number
+  headLabel: HeaderLabel[]
+  numSelected: number
+  onRequestSort
+  onSelectAllClick
 }
 
 const UserListHead = (props: Props): JSX.Element => {
   const { order, orderBy, rowCount, headLabel, numSelected, onRequestSort, onSelectAllClick } =
-    props;
+    props
   const createSortHandler = (property) => (event) => {
-    onRequestSort(event, property);
-  };
+    onRequestSort(event, property)
+  }
 
   return (
     <TableHead>
@@ -53,7 +53,7 @@ const UserListHead = (props: Props): JSX.Element => {
         ))}
       </TableRow>
     </TableHead>
-  );
-};
+  )
+}
 
-export default UserListHead;
+export default UserListHead

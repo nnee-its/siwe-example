@@ -1,9 +1,9 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import appleFilled from "@iconify/icons-ant-design/apple-filled";
-import { alpha, styled } from "@mui/material/styles";
-import { Card, Typography } from "@mui/material";
-import { fShortenNumber } from "@/utils/formatNumber";
+import React from "react"
+import { Icon } from "@iconify/react"
+import appleFilled from "@iconify/icons-ant-design/apple-filled"
+import { alpha, styled } from "@mui/material/styles"
+import { Card, Typography } from "@mui/material"
+import { fShortenNumber } from "@/utils/formatNumber"
 
 const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: "none",
@@ -11,7 +11,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
   padding: theme.spacing(5, 0),
   // color: theme.palette.info.darker,
   // backgroundColor: theme.palette.info.lighter
-}));
+}))
 
 const IconWrapperStyle = styled("div")(({ theme }) => ({
   margin: "auto",
@@ -27,9 +27,9 @@ const IconWrapperStyle = styled("div")(({ theme }) => ({
     theme.palette.info.dark,
     0.24,
   )} 100%)`,
-}));
+}))
 
-const TOTAL = 1352831;
+const TOTAL = 1352831
 
 const AppNewUsers = (): JSX.Element => {
   return (
@@ -42,7 +42,7 @@ const AppNewUsers = (): JSX.Element => {
         New Users
       </Typography>
     </RootStyle>
-  );
-};
+  )
+}
 
-export default AppNewUsers;
+export default AppNewUsers

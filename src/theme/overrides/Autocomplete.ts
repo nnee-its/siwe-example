@@ -1,4 +1,4 @@
-import { Theme } from "@mui/material";
+import { Theme } from "@mui/material"
 
 const Autocomplete = (theme: Theme) => {
   return {
@@ -9,7 +9,7 @@ const Autocomplete = (theme: Theme) => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default Autocomplete;
+export default Autocomplete

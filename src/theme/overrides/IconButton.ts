@@ -1,4 +1,4 @@
-import { Theme } from "@mui/material";
+import { Theme } from "@mui/material"
 
 const IconButton = (theme: Theme) => {
   return {
@@ -22,7 +22,7 @@ const IconButton = (theme: Theme) => {
         root: {},
       },
     },
-  };
-};
+  }
+}
 
-export default IconButton;
+export default IconButton

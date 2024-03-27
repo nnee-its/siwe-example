@@ -1,6 +1,6 @@
 export const pxToRem = (value: number): string => {
-  return `${value / 16}rem`;
-};
+  return `${value / 16}rem`
+}
 
 function responsiveFontSizes({ sm, md, lg }) {
   return {
@@ -13,10 +13,10 @@ function responsiveFontSizes({ sm, md, lg }) {
     "@media (min-width:1200px)": {
       fontSize: pxToRem(lg),
     },
-  };
+  }
 }
 
-const FONT_PRIMARY = "Public Sans, sans-serif";
+const FONT_PRIMARY = "Public Sans, sans-serif"
 
 const typography = {
   fontFamily: FONT_PRIMARY,
@@ -94,6 +94,6 @@ const typography = {
     fontSize: pxToRem(14),
     textTransform: "capitalize",
   },
-};
+}
 
-export default typography;
+export default typography

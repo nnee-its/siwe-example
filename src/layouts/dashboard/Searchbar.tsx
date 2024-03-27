@@ -1,7 +1,7 @@
-import { Icon } from "@iconify/react";
-import React, { useState } from "react";
-import searchFill from "@iconify/icons-eva/search-fill";
-import { styled, alpha } from "@mui/material/styles";
+import { Icon } from "@iconify/react"
+import React, { useState } from "react"
+import searchFill from "@iconify/icons-eva/search-fill"
+import { styled, alpha } from "@mui/material/styles"
 import {
   Box,
   Input,
@@ -10,10 +10,10 @@ import {
   InputAdornment,
   ClickAwayListener,
   IconButton,
-} from "@mui/material";
+} from "@mui/material"
 
-const APPBAR_MOBILE = 64;
-const APPBAR_DESKTOP = 92;
+const APPBAR_MOBILE = 64
+const APPBAR_DESKTOP = 92
 
 const SearchbarStyle = styled("div")(({ theme }) => ({
   top: 0,
@@ -33,18 +33,18 @@ const SearchbarStyle = styled("div")(({ theme }) => ({
     height: APPBAR_DESKTOP,
     padding: theme.spacing(0, 5),
   },
-}));
+}))
 
 const Searchbar = (): JSX.Element => {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false)
 
   const handleOpen = () => {
-    setOpen((prev) => !prev);
-  };
+    setOpen((prev) => !prev)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <ClickAwayListener onClickAway={handleClose}>
@@ -80,7 +80,7 @@ const Searchbar = (): JSX.Element => {
         </Slide>
       </div>
     </ClickAwayListener>
-  );
-};
+  )
+}
 
-export default Searchbar;
+export default Searchbar

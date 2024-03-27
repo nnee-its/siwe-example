@@ -1,11 +1,11 @@
-import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { Box, Card, Link, Typography, Stack } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { fCurrency } from "@/utils/formatNumber";
-import Label from "../../Label";
-import ColorPreview from "../../ColorPreview";
-import { IProduct } from "@/models";
+import React from "react"
+import { Link as RouterLink } from "react-router-dom"
+import { Box, Card, Link, Typography, Stack } from "@mui/material"
+import { styled } from "@mui/material/styles"
+import { fCurrency } from "@/utils/formatNumber"
+import Label from "../../Label"
+import ColorPreview from "../../ColorPreview"
+import { IProduct } from "@/models"
 
 const ProductImgStyle = styled("img")({
   top: 0,
@@ -13,14 +13,14 @@ const ProductImgStyle = styled("img")({
   height: "100%",
   objectFit: "cover",
   position: "absolute",
-});
+})
 
 interface Props {
-  product: IProduct;
+  product: IProduct
 }
 
 export const ShopProductCard = (props: Props): JSX.Element => {
-  const { name, cover, price, colors, status, priceSale } = props.product;
+  const { name, cover, price, colors, status, priceSale } = props.product
 
   return (
     <Card>
@@ -69,7 +69,7 @@ export const ShopProductCard = (props: Props): JSX.Element => {
         </Stack>
       </Stack>
     </Card>
-  );
-};
+  )
+}
 
-export default ShopProductCard;
+export default ShopProductCard

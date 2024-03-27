@@ -1,24 +1,24 @@
-import React from "react";
-import { alpha, styled } from "@mui/material/styles";
+import React from "react"
+import { alpha, styled } from "@mui/material/styles"
 
 const RootStyle = styled("span")(({ theme, styleProps }) => {
-  const { color, variant } = styleProps;
+  const { color, variant } = styleProps
 
   const styleFilled = (color) => ({
     color: theme.palette[color].contrastText,
     backgroundColor: theme.palette[color].main,
-  });
+  })
 
   const styleOutlined = (color) => ({
     color: theme.palette[color].main,
     backgroundColor: "transparent",
     border: `1px solid ${theme.palette[color].main}`,
-  });
+  })
 
   const styleGhost = (color) => ({
     color: theme.palette[color].dark,
     backgroundColor: alpha(theme.palette[color].main, 0.16),
-  });
+  })
 
   return {
     height: 22,
@@ -54,24 +54,24 @@ const RootStyle = styled("span")(({ theme, styleProps }) => {
             backgroundColor: theme.palette.grey[500_16],
           }),
         }),
-  };
-});
+  }
+})
 
 interface Props {
-  color?: "default" | "primary" | "secondary" | "info" | "success" | "warning" | "error";
-  variant?: "filled" | "outlined" | "ghost";
-  children?: JSX.Element;
-  other?;
-  sx?;
+  color?: "default" | "primary" | "secondary" | "info" | "success" | "warning" | "error"
+  variant?: "filled" | "outlined" | "ghost"
+  children?: JSX.Element
+  other?
+  sx?
 }
 
 const Label = (props: Props): JSX.Element => {
-  const { color = "default", variant = "ghost", children, ...other } = props;
+  const { color = "default", variant = "ghost", children, ...other } = props
   return (
     <RootStyle styleProps={{ color, variant }} {...other}>
       {children}
     </RootStyle>
-  );
-};
+  )
+}
 
-export default Label;
+export default Label

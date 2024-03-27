@@ -1,17 +1,17 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import plusFill from "@iconify/icons-eva/plus-fill";
-import { Link as RouterLink } from "react-router-dom";
-import { Grid, Button, Container, Stack, Typography } from "@mui/material";
-import Page from "@/components/Page";
-import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from "@/components/_dashboard/blog";
-import POSTS from "@/_mocks_/blog";
+import React from "react"
+import { Icon } from "@iconify/react"
+import plusFill from "@iconify/icons-eva/plus-fill"
+import { Link as RouterLink } from "react-router-dom"
+import { Grid, Button, Container, Stack, Typography } from "@mui/material"
+import Page from "@/components/Page"
+import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from "@/components/_dashboard/blog"
+import POSTS from "@/_mocks_/blog"
 
 const SORT_OPTIONS = [
   { value: "latest", label: "Latest" },
   { value: "popular", label: "Popular" },
   { value: "oldest", label: "Oldest" },
-];
+]
 
 // ----------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ const Blog = (): JSX.Element => {
         </Grid>
       </Container>
     </Page>
-  );
-};
+  )
+}
 
-export default Blog;
+export default Blog

@@ -1,9 +1,9 @@
-import React from "react";
-import { merge } from "lodash";
-import ReactApexChart from "react-apexcharts";
-import { Card, CardHeader, Box } from "@mui/material";
-import { BaseOptionChart } from "../../charts";
-import { ApexOptions } from "apexcharts";
+import React from "react"
+import { merge } from "lodash"
+import ReactApexChart from "react-apexcharts"
+import { Card, CardHeader, Box } from "@mui/material"
+import { BaseOptionChart } from "../../charts"
+import { ApexOptions } from "apexcharts"
 
 const CHART_DATA = [
   {
@@ -21,7 +21,7 @@ const CHART_DATA = [
     type: "line",
     data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
   },
-];
+]
 
 export const AppWebsiteVisits = (): JSX.Element => {
   const chartOptions: ApexOptions = merge(BaseOptionChart(), {
@@ -48,13 +48,13 @@ export const AppWebsiteVisits = (): JSX.Element => {
       y: {
         formatter: (y) => {
           if (typeof y !== "undefined") {
-            return `${y.toFixed(0)} visits`;
+            return `${y.toFixed(0)} visits`
           }
-          return y;
+          return y
         },
       },
     },
-  });
+  })
 
   return (
     <Card>
@@ -63,7 +63,7 @@ export const AppWebsiteVisits = (): JSX.Element => {
         <ReactApexChart type="line" series={CHART_DATA} options={chartOptions} height={364} />
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default AppWebsiteVisits;
+export default AppWebsiteVisits

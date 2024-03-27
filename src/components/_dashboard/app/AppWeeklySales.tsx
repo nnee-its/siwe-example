@@ -1,9 +1,9 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import androidFilled from "@iconify/icons-ant-design/android-filled";
-import { alpha, styled } from "@mui/material/styles";
-import { Card, Typography } from "@mui/material";
-import { fShortenNumber } from "@/utils/formatNumber";
+import React from "react"
+import { Icon } from "@iconify/react"
+import androidFilled from "@iconify/icons-ant-design/android-filled"
+import { alpha, styled } from "@mui/material/styles"
+import { Card, Typography } from "@mui/material"
+import { fShortenNumber } from "@/utils/formatNumber"
 
 const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: "none",
@@ -11,7 +11,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
   padding: theme.spacing(5, 0),
   // color: theme.palette.primary.darker,
   // backgroundColor: theme.palette.primary.lighter
-}));
+}))
 
 const IconWrapperStyle = styled("div")(({ theme }) => ({
   margin: "auto",
@@ -27,11 +27,11 @@ const IconWrapperStyle = styled("div")(({ theme }) => ({
     theme.palette.primary.dark,
     0.24,
   )} 100%)`,
-}));
+}))
 
 // ----------------------------------------------------------------------
 
-const TOTAL = 714000;
+const TOTAL = 714000
 
 export const AppWeeklySales = (): JSX.Element => {
   return (
@@ -44,7 +44,7 @@ export const AppWeeklySales = (): JSX.Element => {
         Weekly Sales
       </Typography>
     </RootStyle>
-  );
-};
+  )
+}
 
-export default AppWeeklySales;
+export default AppWeeklySales

@@ -1,8 +1,8 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import shoppingCartFill from "@iconify/icons-eva/shopping-cart-fill";
-import { styled } from "@mui/material/styles";
-import { Badge } from "@mui/material";
+import React from "react"
+import { Icon } from "@iconify/react"
+import shoppingCartFill from "@iconify/icons-eva/shopping-cart-fill"
+import { styled } from "@mui/material/styles"
+import { Badge } from "@mui/material"
 
 const RootStyle = styled("div")(({ theme }) => ({
   zIndex: 999,
@@ -23,7 +23,7 @@ const RootStyle = styled("div")(({ theme }) => ({
   // borderBottomLeftRadius: theme.shape.borderRadiusMd,
   transition: theme.transitions.create("opacity"),
   "&:hover": { opacity: 0.72 },
-}));
+}))
 
 const CartWidget = (): JSX.Element => {
   return (
@@ -32,7 +32,7 @@ const CartWidget = (): JSX.Element => {
         <Icon icon={shoppingCartFill} width={24} height={24} />
       </Badge>
     </RootStyle>
-  );
-};
+  )
+}
 
-export default CartWidget;
+export default CartWidget

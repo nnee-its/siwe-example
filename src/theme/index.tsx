@@ -1,19 +1,18 @@
-import React, { useMemo } from "react";
-import { CssBaseline, ThemeOptions } from "@mui/material";
-import { ThemeProvider, createTheme, StyledEngineProvider } from "@mui/material/styles";
-import shape from "@/theme/shape";
-import palette from "@/theme/palette";
-import typography from "@/theme/typography";
-import GlobalStyles from "@/theme/globalStyles";
-import componentsOverride from "@/theme/overrides";
-import shadows, { customShadows } from "@/theme/shadows";
-
+import GlobalStyles from "@/theme/globalStyles"
+import componentsOverride from "@/theme/overrides"
+import palette from "@/theme/palette"
+import { customShadows } from "@/theme/shadows"
+import shape from "@/theme/shape"
+import { CssBaseline, ThemeOptions } from "@mui/material"
+import { StyledEngineProvider, ThemeProvider, createTheme } from "@mui/material/styles"
+import React, { useMemo } from "react"
+import "./tailwind.css"
 interface Props {
-  children;
+  children
 }
 
 export const ThemeConfig = (props: Props): JSX.Element => {
-  const { children } = props;
+  const { children } = props
   const themeOptions = useMemo<ThemeOptions>(
     () => ({
       palette,
@@ -23,10 +22,10 @@ export const ThemeConfig = (props: Props): JSX.Element => {
       customShadows,
     }),
     [],
-  );
+  )
 
-  const theme = createTheme(themeOptions);
-  theme.components = componentsOverride(theme);
+  const theme = createTheme(themeOptions)
+  theme.components = componentsOverride(theme)
 
   return (
     <StyledEngineProvider injectFirst>
@@ -36,7 +35,7 @@ export const ThemeConfig = (props: Props): JSX.Element => {
         {children}
       </ThemeProvider>
     </StyledEngineProvider>
-  );
-};
+  )
+}
 
-export default ThemeConfig;
+export default ThemeConfig

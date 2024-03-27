@@ -1,11 +1,11 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Link as RouterLink } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import { Box, Button, Typography, Container } from "@mui/material";
-import { MotionContainer, varBounceIn } from "@/components/animate";
-import Page from "@/components/Page";
-import Illustration404Image from "@/assets/images/illustrations/illustration_404.svg";
+import React from "react"
+import { motion } from "framer-motion"
+import { Link as RouterLink } from "react-router-dom"
+import { styled } from "@mui/material/styles"
+import { Box, Button, Typography, Container } from "@mui/material"
+import { MotionContainer, varBounceIn } from "@/components/animate"
+import Page from "@/components/Page"
+import Illustration404Image from "@/assets/images/illustrations/illustration_404.svg"
 
 const RootStyle = styled(Page)(({ theme }) => ({
   display: "flex",
@@ -13,7 +13,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
   alignItems: "center",
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(10),
-}));
+}))
 
 const Page404 = (): JSX.Element => {
   return (
@@ -46,7 +46,7 @@ const Page404 = (): JSX.Element => {
         </MotionContainer>
       </Container>
     </RootStyle>
-  );
-};
+  )
+}
 
-export default Page404;
+export default Page404

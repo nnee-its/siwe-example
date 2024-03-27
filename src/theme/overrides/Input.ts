@@ -1,4 +1,4 @@
-import { ThemeOptions } from "@mui/material";
+import { ThemeOptions } from "@mui/material"
 
 const Input = (theme: ThemeOptions): any => {
   return {
@@ -61,7 +61,7 @@ const Input = (theme: ThemeOptions): any => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default Input;
+export default Input

@@ -1,19 +1,19 @@
-import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import { Box, Card, Link, Container, Typography } from "@mui/material";
-import AuthLayout from "../layouts/AuthLayout";
-import Page from "@/components/Page";
-import { MHidden } from "@/components/@material-extend";
-import { RegisterForm } from "@/components/authentication/register";
-import AuthSocial from "@/components/authentication/AuthSocial";
-import IllustrationRegisterImage from "@/assets/images/illustrations/illustration_register.png";
+import React from "react"
+import { Link as RouterLink } from "react-router-dom"
+import { styled } from "@mui/material/styles"
+import { Box, Card, Link, Container, Typography } from "@mui/material"
+import AuthLayout from "../layouts/AuthLayout"
+import Page from "@/components/Page"
+import { MHidden } from "@/components/@material-extend"
+import { RegisterForm } from "@/components/authentication/register"
+import AuthSocial from "@/components/authentication/AuthSocial"
+import IllustrationRegisterImage from "@/assets/images/illustrations/illustration_register.png"
 
 const RootStyle = styled(Page)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     display: "flex",
   },
-}));
+}))
 
 const SectionStyle = styled(Card)(({ theme }) => ({
   width: "100%",
@@ -22,7 +22,7 @@ const SectionStyle = styled(Card)(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "center",
   margin: theme.spacing(2, 0, 2, 2),
-}));
+}))
 
 const ContentStyle = styled("div")(({ theme }) => ({
   maxWidth: 480,
@@ -32,7 +32,7 @@ const ContentStyle = styled("div")(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "center",
   padding: theme.spacing(12, 0),
-}));
+}))
 
 const Register = (): JSX.Element => {
   return (
@@ -91,7 +91,7 @@ const Register = (): JSX.Element => {
         </ContentStyle>
       </Container>
     </RootStyle>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

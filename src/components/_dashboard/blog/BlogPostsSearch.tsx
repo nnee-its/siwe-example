@@ -1,9 +1,9 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import searchFill from "@iconify/icons-eva/search-fill";
-import { styled } from "@mui/material/styles";
-import { Box, TextField, Autocomplete, InputAdornment } from "@mui/material";
-import { IPost } from "@/models";
+import React from "react"
+import { Icon } from "@iconify/react"
+import searchFill from "@iconify/icons-eva/search-fill"
+import { styled } from "@mui/material/styles"
+import { Box, TextField, Autocomplete, InputAdornment } from "@mui/material"
+import { IPost } from "@/models"
 
 const RootStyle = styled("div")(({ theme }) => ({
   "& .MuiAutocomplete-root": {
@@ -30,10 +30,10 @@ const RootStyle = styled("div")(({ theme }) => ({
       borderBottom: `solid 1px ${theme.palette.divider}`,
     },
   },
-}));
+}))
 
 interface Props {
-  posts: IPost[];
+  posts: IPost[]
 }
 
 export const BlogPostsSearch = (props: Props): JSX.Element => {
@@ -73,7 +73,7 @@ export const BlogPostsSearch = (props: Props): JSX.Element => {
         )}
       />
     </RootStyle>
-  );
-};
+  )
+}
 
-export default BlogPostsSearch;
+export default BlogPostsSearch

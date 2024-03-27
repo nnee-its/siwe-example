@@ -1,15 +1,15 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import checkmarkFill from "@iconify/icons-eva/checkmark-fill";
-import { Box, Checkbox } from "@mui/material";
+import React from "react"
+import { Icon } from "@iconify/react"
+import checkmarkFill from "@iconify/icons-eva/checkmark-fill"
+import { Box, Checkbox } from "@mui/material"
 
 interface IconColorProps {
-  sx?;
-  other?;
+  sx?
+  other?
 }
 
 function IconColor(props: IconColorProps) {
-  const { sx, ...other } = props;
+  const { sx, ...other } = props
   return (
     <Box
       sx={{
@@ -31,23 +31,23 @@ function IconColor(props: IconColorProps) {
     >
       <Icon icon={checkmarkFill} />
     </Box>
-  );
+  )
 }
 
 interface Props {
-  name?;
-  colors: string[];
-  onChecked: (color: string) => boolean;
-  sx;
-  onChange?;
+  name?
+  colors: string[]
+  onChecked: (color: string) => boolean
+  sx
+  onChange?
 }
 
 const ColorManyPicker = (props: Props): JSX.Element => {
-  const { colors, onChecked, sx, ...other } = props;
+  const { colors, onChecked, sx, ...other } = props
   return (
     <Box sx={sx}>
       {colors.map((color) => {
-        const isWhite = color === "#FFFFFF" || color === "white";
+        const isWhite = color === "#FFFFFF" || color === "white"
 
         return (
           <Checkbox
@@ -92,10 +92,10 @@ const ColorManyPicker = (props: Props): JSX.Element => {
             }}
             {...other}
           />
-        );
+        )
       })}
     </Box>
-  );
-};
+  )
+}
 
-export default ColorManyPicker;
+export default ColorManyPicker

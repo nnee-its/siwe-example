@@ -1,4 +1,4 @@
-import { Theme } from "@mui/material";
+import { Theme } from "@mui/material"
 
 const Tooltip = (theme: Theme) => {
   return {
@@ -12,7 +12,7 @@ const Tooltip = (theme: Theme) => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default Tooltip;
+export default Tooltip

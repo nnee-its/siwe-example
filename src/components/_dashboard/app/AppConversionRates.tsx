@@ -1,12 +1,12 @@
-import React from "react";
-import { merge } from "lodash";
-import ReactApexChart from "react-apexcharts";
-import { Box, Card, CardHeader } from "@mui/material";
-import { fNumber } from "@/utils/formatNumber";
-import { BaseOptionChart } from "@/components/charts";
-import { ApexOptions } from "apexcharts";
+import React from "react"
+import { merge } from "lodash"
+import ReactApexChart from "react-apexcharts"
+import { Box, Card, CardHeader } from "@mui/material"
+import { fNumber } from "@/utils/formatNumber"
+import { BaseOptionChart } from "@/components/charts"
+import { ApexOptions } from "apexcharts"
 
-const CHART_DATA = [{ data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380] }];
+const CHART_DATA = [{ data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380] }]
 
 const AppConversionRates = (): JSX.Element => {
   const chartOptions: ApexOptions = merge(BaseOptionChart(), {
@@ -36,7 +36,7 @@ const AppConversionRates = (): JSX.Element => {
         "United Kingdom",
       ],
     },
-  });
+  })
 
   return (
     <Card>
@@ -45,7 +45,7 @@ const AppConversionRates = (): JSX.Element => {
         <ReactApexChart type="bar" series={CHART_DATA} options={chartOptions} height={364} />
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default AppConversionRates;
+export default AppConversionRates

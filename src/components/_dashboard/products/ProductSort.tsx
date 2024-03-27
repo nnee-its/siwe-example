@@ -1,26 +1,26 @@
-import { Icon } from "@iconify/react";
-import React, { useState } from "react";
-import chevronUpFill from "@iconify/icons-eva/chevron-up-fill";
-import chevronDownFill from "@iconify/icons-eva/chevron-down-fill";
-import { Menu, Button, MenuItem, Typography } from "@mui/material";
+import { Icon } from "@iconify/react"
+import React, { useState } from "react"
+import chevronUpFill from "@iconify/icons-eva/chevron-up-fill"
+import chevronDownFill from "@iconify/icons-eva/chevron-down-fill"
+import { Menu, Button, MenuItem, Typography } from "@mui/material"
 
 const SORT_BY_OPTIONS = [
   { value: "featured", label: "Featured" },
   { value: "newest", label: "Newest" },
   { value: "priceDesc", label: "Price: High-Low" },
   { value: "priceAsc", label: "Price: Low-High" },
-];
+]
 
 const ShopProductSort = (): JSX.Element => {
-  const [open, setOpen] = useState(null);
+  const [open, setOpen] = useState(null)
 
   const handleOpen = (event) => {
-    setOpen(event.currentTarget);
-  };
+    setOpen(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setOpen(null);
-  };
+    setOpen(null)
+  }
 
   return (
     <>
@@ -55,7 +55,7 @@ const ShopProductSort = (): JSX.Element => {
         ))}
       </Menu>
     </>
-  );
-};
+  )
+}
 
-export default ShopProductSort;
+export default ShopProductSort

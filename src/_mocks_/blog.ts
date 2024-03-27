@@ -1,6 +1,6 @@
-import { faker } from "@faker-js/faker";
-import { mockImgCover } from "@/utils/mockImages";
-import { IPost } from "@/models";
+import { faker } from "@faker-js/faker"
+import { mockImgCover } from "@/utils/mockImages"
+import { IPost } from "@/models"
 
 const POST_TITLES = [
   "Whiteboard Templates By Industry Leaders",
@@ -27,9 +27,9 @@ const POST_TITLES = [
   "Gradient Ticket icon",
   "Here’s a Dyson motorcycle concept that doesn’t ‘suck’!",
   "How to Animate a SVG with border-image",
-];
+]
 
-const baseUrl = "https://image.xiaomo.info/mock";
+const baseUrl = "https://image.xiaomo.info/mock"
 const posts: IPost[] = [...Array(23)].map((_, index) => ({
   id: faker.datatype.uuid(),
   cover: mockImgCover(index + 1),
@@ -43,6 +43,6 @@ const posts: IPost[] = [...Array(23)].map((_, index) => ({
     name: faker.name.fullName(),
     avatarUrl: `${baseUrl}/avatar/avatar_${index + 1}.jpg`,
   },
-}));
+}))
 
-export default posts;
+export default posts

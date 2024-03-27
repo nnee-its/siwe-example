@@ -1,13 +1,13 @@
-import React from "react";
-import { Paper, Typography } from "@mui/material";
+import React from "react"
+import { Paper, Typography } from "@mui/material"
 
 interface SearchNotFoundProps {
-  searchQuery: string;
-  other?;
+  searchQuery: string
+  other?
 }
 
 const SearchNotFound = (props: SearchNotFoundProps): JSX.Element => {
-  const { searchQuery = "", ...other } = props;
+  const { searchQuery = "", ...other } = props
   return (
     <Paper {...other}>
       <Typography gutterBottom align="center" variant="subtitle1">
@@ -18,7 +18,7 @@ const SearchNotFound = (props: SearchNotFoundProps): JSX.Element => {
         <strong>&quot;{searchQuery}&quot;</strong>. Try checking for typos or using complete words.
       </Typography>
     </Paper>
-  );
-};
+  )
+}
 
-export default SearchNotFound;
+export default SearchNotFound

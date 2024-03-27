@@ -1,9 +1,9 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import { Form, FormikProvider } from "formik";
-import closeFill from "@iconify/icons-eva/close-fill";
-import roundClearAll from "@iconify/icons-ic/round-clear-all";
-import roundFilterList from "@iconify/icons-ic/round-filter-list";
+import React from "react"
+import { Icon } from "@iconify/react"
+import { Form, FormikProvider } from "formik"
+import closeFill from "@iconify/icons-eva/close-fill"
+import roundClearAll from "@iconify/icons-ic/round-clear-all"
+import roundFilterList from "@iconify/icons-ic/round-filter-list"
 import {
   Box,
   Radio,
@@ -18,18 +18,18 @@ import {
   Typography,
   RadioGroup,
   FormControlLabel,
-} from "@mui/material";
-import Scrollbar from "../../Scrollbar";
-import ColorManyPicker from "../../ColorManyPicker";
+} from "@mui/material"
+import Scrollbar from "../../Scrollbar"
+import ColorManyPicker from "../../ColorManyPicker"
 
-export const FILTER_GENDER_OPTIONS = ["Men", "Women", "Kids"];
-export const FILTER_CATEGORY_OPTIONS = ["All", "Shose", "Apparel", "Accessories"];
-export const FILTER_RATING_OPTIONS = ["up4Star", "up3Star", "up2Star", "up1Star"];
+export const FILTER_GENDER_OPTIONS = ["Men", "Women", "Kids"]
+export const FILTER_CATEGORY_OPTIONS = ["All", "Shose", "Apparel", "Accessories"]
+export const FILTER_RATING_OPTIONS = ["up4Star", "up3Star", "up2Star", "up1Star"]
 export const FILTER_PRICE_OPTIONS = [
   { value: "below", label: "Below $25" },
   { value: "between", label: "Between $25 - $75" },
   { value: "above", label: "Above $75" },
-];
+]
 export const FILTER_COLOR_OPTIONS: string[] = [
   "#00AB55",
   "#000000",
@@ -39,19 +39,19 @@ export const FILTER_COLOR_OPTIONS: string[] = [
   "#1890FF",
   "#94D82D",
   "#FFC107",
-];
+]
 
 interface Props {
-  isOpenFilter: boolean;
-  onResetFilter: () => void;
-  onOpenFilter: () => void;
-  onCloseFilter: () => void;
-  formik;
+  isOpenFilter: boolean
+  onResetFilter: () => void
+  onOpenFilter: () => void
+  onCloseFilter: () => void
+  formik
 }
 
 const ProductFilterSidebar = (props: Props): JSX.Element => {
-  const { onResetFilter } = props;
-  const { values, getFieldProps, handleChange } = props.formik;
+  const { onResetFilter } = props
+  const { values, getFieldProps, handleChange } = props.formik
 
   return (
     <>
@@ -207,7 +207,7 @@ const ProductFilterSidebar = (props: Props): JSX.Element => {
         </Form>
       </FormikProvider>
     </>
-  );
-};
+  )
+}
 
-export default ProductFilterSidebar;
+export default ProductFilterSidebar

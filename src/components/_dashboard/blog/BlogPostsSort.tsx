@@ -1,14 +1,14 @@
-import React from "react";
-import { MenuItem, TextField } from "@mui/material";
+import React from "react"
+import { MenuItem, TextField } from "@mui/material"
 
 interface Menu {
-  value: string;
-  label: string;
+  value: string
+  label: string
 }
 
 interface Props {
-  options: Menu[];
-  onSort?: () => void;
+  options: Menu[]
+  onSort?: () => void
 }
 
 export const BlogPostsSort = (props: Props): JSX.Element => {
@@ -20,7 +20,7 @@ export const BlogPostsSort = (props: Props): JSX.Element => {
         </MenuItem>
       ))}
     </TextField>
-  );
-};
+  )
+}
 
-export default BlogPostsSort;
+export default BlogPostsSort

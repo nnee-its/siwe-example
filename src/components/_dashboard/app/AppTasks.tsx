@@ -1,14 +1,6 @@
-import React from "react";
-import { Form, FormikProvider, useFormik } from "formik";
-import {
-  Box,
-  Card,
-  Checkbox,
-  CardHeader,
-  Typography,
-  FormControlLabel,
-  Stack,
-} from "@mui/material";
+import React from "react"
+import { Form, FormikProvider, useFormik } from "formik"
+import { Box, Card, Checkbox, CardHeader, Typography, FormControlLabel, Stack } from "@mui/material"
 
 const TASKS = [
   "Create FireStone Logo",
@@ -16,17 +8,17 @@ const TASKS = [
   "Stakeholder Meeting",
   "Scoping & Estimations",
   "Sprint Showcase",
-];
+]
 
 interface Props {
-  task;
-  checked;
-  formik;
-  other?;
+  task
+  checked
+  formik
+  other?
 }
 
 const TaskItem = (props: Props) => {
-  const { getFieldProps } = props.formik;
+  const { getFieldProps } = props.formik
 
   return (
     <Stack direction="row" justifyContent="space-between" sx={{ py: 0.75 }}>
@@ -54,8 +46,8 @@ const TaskItem = (props: Props) => {
         }
       />
     </Stack>
-  );
-};
+  )
+}
 
 export const AppTasks = (): JSX.Element => {
   const formik = useFormik({
@@ -63,11 +55,11 @@ export const AppTasks = (): JSX.Element => {
       checked: [TASKS[2]],
     },
     onSubmit: (values) => {
-      console.log(values);
+      console.log(values)
     },
-  });
+  })
 
-  const { values, handleSubmit } = formik;
+  const { values, handleSubmit } = formik
 
   return (
     <Card>
@@ -87,7 +79,7 @@ export const AppTasks = (): JSX.Element => {
         </FormikProvider>
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default AppTasks;
+export default AppTasks

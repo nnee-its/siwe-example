@@ -1,14 +1,14 @@
-import React from "react";
-import { merge } from "lodash";
-import ReactApexChart from "react-apexcharts";
-import { useTheme, styled } from "@mui/material/styles";
-import { Card, CardHeader } from "@mui/material";
-import { fNumber } from "@/utils/formatNumber";
-import { BaseOptionChart } from "@/components/charts";
-import { ApexOptions } from "apexcharts";
+import React from "react"
+import { merge } from "lodash"
+import ReactApexChart from "react-apexcharts"
+import { useTheme, styled } from "@mui/material/styles"
+import { Card, CardHeader } from "@mui/material"
+import { fNumber } from "@/utils/formatNumber"
+import { BaseOptionChart } from "@/components/charts"
+import { ApexOptions } from "apexcharts"
 
-const CHART_HEIGHT = 372;
-const LEGEND_HEIGHT = 72;
+const CHART_HEIGHT = 372
+const LEGEND_HEIGHT = 72
 
 const ChartWrapperStyle = styled("div")(({ theme }) => ({
   height: CHART_HEIGHT,
@@ -24,14 +24,14 @@ const ChartWrapperStyle = styled("div")(({ theme }) => ({
     borderTop: `solid 1px ${theme.palette.divider}`,
     top: `calc(${CHART_HEIGHT - LEGEND_HEIGHT}px) !important`,
   },
-}));
+}))
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [4344, 5435, 1443, 4443];
+const CHART_DATA = [4344, 5435, 1443, 4443]
 
 const AppCurrentVisits = (): JSX.Element => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const chartOptions: ApexOptions = merge(BaseOptionChart(), {
     colors: [
@@ -56,7 +56,7 @@ const AppCurrentVisits = (): JSX.Element => {
     plotOptions: {
       pie: { donut: { labels: { show: false } } },
     },
-  });
+  })
 
   return (
     <Card>
@@ -65,7 +65,7 @@ const AppCurrentVisits = (): JSX.Element => {
         <ReactApexChart type="pie" series={CHART_DATA} options={chartOptions} height={280} />
       </ChartWrapperStyle>
     </Card>
-  );
-};
+  )
+}
 
-export default AppCurrentVisits;
+export default AppCurrentVisits

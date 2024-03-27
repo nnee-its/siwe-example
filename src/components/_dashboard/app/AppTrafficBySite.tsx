@@ -1,12 +1,12 @@
-import React from "react";
-import { faker } from "@faker-js/faker";
-import { Icon } from "@iconify/react";
-import googleFill from "@iconify/icons-eva/google-fill";
-import twitterFill from "@iconify/icons-eva/twitter-fill";
-import facebookFill from "@iconify/icons-eva/facebook-fill";
-import linkedinFill from "@iconify/icons-eva/linkedin-fill";
-import { Box, Grid, Card, Paper, Typography, CardHeader, CardContent } from "@mui/material";
-import { fShortenNumber } from "@/utils/formatNumber";
+import React from "react"
+import { faker } from "@faker-js/faker"
+import { Icon } from "@iconify/react"
+import googleFill from "@iconify/icons-eva/google-fill"
+import twitterFill from "@iconify/icons-eva/twitter-fill"
+import facebookFill from "@iconify/icons-eva/facebook-fill"
+import linkedinFill from "@iconify/icons-eva/linkedin-fill"
+import { Box, Grid, Card, Paper, Typography, CardHeader, CardContent } from "@mui/material"
+import { fShortenNumber } from "@/utils/formatNumber"
 
 const SOCIALS = [
   {
@@ -29,15 +29,15 @@ const SOCIALS = [
     value: faker.datatype.number(),
     icon: <Icon icon={twitterFill} color="#1C9CEA" width={32} height={32} />,
   },
-];
+]
 
 interface Props {
-  site;
+  site
 }
 
 function SiteItem(props: Props) {
-  const { site } = props;
-  const { icon, value, name } = site;
+  const { site } = props
+  const { icon, value, name } = site
 
   return (
     <Grid item xs={6}>
@@ -49,7 +49,7 @@ function SiteItem(props: Props) {
         </Typography>
       </Paper>
     </Grid>
-  );
+  )
 }
 
 export const AppTrafficBySite = (): JSX.Element => {
@@ -64,7 +64,7 @@ export const AppTrafficBySite = (): JSX.Element => {
         </Grid>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default AppTrafficBySite;
+export default AppTrafficBySite

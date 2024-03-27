@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Grid, Container, Typography } from "@mui/material";
-import Page from "@/components/Page";
+import React from "react"
+import { Box, Grid, Container, Typography } from "@mui/material"
+import Page from "@/components/Page"
 import {
   AppTasks,
   AppNewUsers,
@@ -14,7 +14,7 @@ import {
   AppTrafficBySite,
   AppCurrentSubject,
   AppConversionRates,
-} from "@/components/_dashboard/app";
+} from "@/components/_dashboard/app"
 
 const DashboardApp = (): JSX.Element => {
   return (
@@ -71,7 +71,7 @@ const DashboardApp = (): JSX.Element => {
         </Grid>
       </Container>
     </Page>
-  );
-};
+  )
+}
 
-export default DashboardApp;
+export default DashboardApp

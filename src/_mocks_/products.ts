@@ -1,7 +1,7 @@
-import { faker } from "@faker-js/faker";
-import { sample } from "lodash";
-import { mockImgProduct } from "@/utils/mockImages";
-import { IProduct } from "@/models";
+import { faker } from "@faker-js/faker"
+import { sample } from "lodash"
+import { mockImgProduct } from "@/utils/mockImages"
+import { IProduct } from "@/models"
 
 const PRODUCT_NAME = [
   "Nike Air Force 1 NDESTRUKT",
@@ -28,7 +28,7 @@ const PRODUCT_NAME = [
   "NikeCourt Royale",
   "Nike React Art3mis",
   "Nike React Infinity Run Flyknit A.I.R. Chaz Bear",
-];
+]
 const PRODUCT_COLOR = [
   "#00AB55",
   "#000000",
@@ -38,12 +38,12 @@ const PRODUCT_COLOR = [
   "#1890FF",
   "#94D82D",
   "#FFC107",
-];
+]
 
 // ----------------------------------------------------------------------
 
 const products: IProduct[] = [...Array(24)].map((_, index) => {
-  const setIndex = index + 1;
+  const setIndex = index + 1
 
   return {
     id: faker.datatype.uuid() as string,
@@ -63,7 +63,7 @@ const products: IProduct[] = [...Array(24)].map((_, index) => {
       (setIndex === 24 && PRODUCT_COLOR.slice(5, 6)) ||
       PRODUCT_COLOR,
     status: sample(["sale", "new", "", ""]),
-  };
-});
+  }
+})
 
-export default products;
+export default products

@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
-import { Icon } from "@iconify/react";
-import searchFill from "@iconify/icons-eva/search-fill";
-import trash2Fill from "@iconify/icons-eva/trash-2-fill";
-import roundFilterList from "@iconify/icons-ic/round-filter-list";
-import { styled } from "@mui/material/styles";
+import { Icon } from "@iconify/react"
+import searchFill from "@iconify/icons-eva/search-fill"
+import trash2Fill from "@iconify/icons-eva/trash-2-fill"
+import roundFilterList from "@iconify/icons-ic/round-filter-list"
+import { styled } from "@mui/material/styles"
 import {
   Box,
   Toolbar,
@@ -13,14 +13,14 @@ import {
   Typography,
   OutlinedInput,
   InputAdornment,
-} from "@mui/material";
+} from "@mui/material"
 
 const RootStyle = styled(Toolbar)(({ theme }) => ({
   height: 96,
   display: "flex",
   justifyContent: "space-between",
   padding: theme.spacing(0, 1, 0, 3),
-}));
+}))
 
 const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
   width: 240,
@@ -33,16 +33,16 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
     borderWidth: "1px !important",
     borderColor: `${theme.palette.grey[500_32]} !important`,
   },
-}));
+}))
 
 interface Props {
-  numSelected: number;
-  filterName: string;
-  onFilterName;
+  numSelected: number
+  filterName: string
+  onFilterName
 }
 
 const UserListToolbar = (props: Props): JSX.Element => {
-  const { numSelected, filterName, onFilterName } = props;
+  const { numSelected, filterName, onFilterName } = props
   return (
     <RootStyle
       sx={{
@@ -83,7 +83,7 @@ const UserListToolbar = (props: Props): JSX.Element => {
         </Tooltip>
       )}
     </RootStyle>
-  );
-};
+  )
+}
 
-export default UserListToolbar;
+export default UserListToolbar

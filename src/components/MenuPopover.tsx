@@ -1,6 +1,6 @@
-import React from "react";
-import { Popover } from "@mui/material";
-import { alpha, styled } from "@mui/material/styles";
+import React from "react"
+import { Popover } from "@mui/material"
+import { alpha, styled } from "@mui/material/styles"
 
 const ArrowStyle = styled("span")(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
@@ -16,18 +16,18 @@ const ArrowStyle = styled("span")(({ theme }) => ({
     borderRight: `solid 1px ${alpha(theme.palette.grey[500], 0.12)}`,
     borderBottom: `solid 1px ${alpha(theme.palette.grey[500], 0.12)}`,
   },
-}));
+}))
 
 interface Props {
-  children?;
-  sx?;
-  open?;
-  onClose?;
-  anchorEl?;
+  children?
+  sx?
+  open?
+  onClose?
+  anchorEl?
 }
 
 const MenuPopover = (props: Props): JSX.Element => {
-  const { open, children, ...other } = props;
+  const { open, children, ...other } = props
   return (
     <Popover
       open={open}
@@ -49,7 +49,7 @@ const MenuPopover = (props: Props): JSX.Element => {
 
       {children}
     </Popover>
-  );
-};
+  )
+}
 
-export default MenuPopover;
+export default MenuPopover

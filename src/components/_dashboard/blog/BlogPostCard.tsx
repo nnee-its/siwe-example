@@ -1,21 +1,21 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import eyeFill from "@iconify/icons-eva/eye-fill";
-import shareFill from "@iconify/icons-eva/share-fill";
-import messageCircleFill from "@iconify/icons-eva/message-circle-fill";
-import { alpha, styled } from "@mui/material/styles";
-import { Box, Link, Card, Grid, Avatar, Typography, CardContent } from "@mui/material";
-import { fDate } from "@/utils/formatTime";
-import { fShortenNumber } from "@/utils/formatNumber";
-import SvgIconStyle from "../../SvgIconStyle";
-import { IPost } from "@/models";
+import React from "react"
+import { Icon } from "@iconify/react"
+import eyeFill from "@iconify/icons-eva/eye-fill"
+import shareFill from "@iconify/icons-eva/share-fill"
+import messageCircleFill from "@iconify/icons-eva/message-circle-fill"
+import { alpha, styled } from "@mui/material/styles"
+import { Box, Link, Card, Grid, Avatar, Typography, CardContent } from "@mui/material"
+import { fDate } from "@/utils/formatTime"
+import { fShortenNumber } from "@/utils/formatNumber"
+import SvgIconStyle from "../../SvgIconStyle"
+import { IPost } from "@/models"
 
-import ShapeAvatar from "@/assets/images/icons/shape-avatar.svg";
+import ShapeAvatar from "@/assets/images/icons/shape-avatar.svg"
 
 const CardMediaStyle = styled("div")({
   position: "relative",
   paddingTop: "calc(100% * 3 / 4)",
-});
+})
 
 const TitleStyle = styled(Link)({
   height: 44,
@@ -23,7 +23,7 @@ const TitleStyle = styled(Link)({
   WebkitLineClamp: 2,
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
-});
+})
 
 const AvatarStyle = styled(Avatar)(({ theme }) => ({
   zIndex: 9,
@@ -32,7 +32,7 @@ const AvatarStyle = styled(Avatar)(({ theme }) => ({
   position: "absolute",
   left: theme.spacing(3),
   bottom: theme.spacing(-2),
-}));
+}))
 
 const InfoStyle = styled("div")(({ theme }) => ({
   display: "flex",
@@ -40,7 +40,7 @@ const InfoStyle = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
   marginTop: theme.spacing(3),
   color: theme.palette.text.disabled,
-}));
+}))
 
 const CoverImgStyle = styled("img")({
   top: 0,
@@ -48,24 +48,24 @@ const CoverImgStyle = styled("img")({
   height: "100%",
   objectFit: "cover",
   position: "absolute",
-});
+})
 
 interface Props {
-  post: IPost;
-  index: number;
+  post: IPost
+  index: number
 }
 
 const BlogPostCard = (props: Props): JSX.Element => {
-  const { post, index } = props;
-  const { cover, title, view, comment, share, author, createdAt } = post;
-  const latestPostLarge = index === 0;
-  const latestPost = index === 1 || index === 2;
+  const { post, index } = props
+  const { cover, title, view, comment, share, author, createdAt } = post
+  const latestPostLarge = index === 0
+  const latestPost = index === 1 || index === 2
 
   const POST_INFO = [
     { number: comment, icon: messageCircleFill },
     { number: view, icon: eyeFill },
     { number: share, icon: shareFill },
-  ];
+  ]
 
   return (
     <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3}>
@@ -172,7 +172,7 @@ const BlogPostCard = (props: Props): JSX.Element => {
         </CardContent>
       </Card>
     </Grid>
-  );
-};
+  )
+}
 
-export default BlogPostCard;
+export default BlogPostCard

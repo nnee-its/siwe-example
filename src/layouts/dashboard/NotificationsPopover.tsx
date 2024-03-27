@@ -1,14 +1,14 @@
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker"
 
-import { noCase } from "change-case";
-import React, { useRef, useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { set, sub, formatDistanceToNow } from "date-fns";
-import { Icon } from "@iconify/react";
-import bellFill from "@iconify/icons-eva/bell-fill";
-import clockFill from "@iconify/icons-eva/clock-fill";
-import doneAllFill from "@iconify/icons-eva/done-all-fill";
-import { alpha } from "@mui/material/styles";
+import { noCase } from "change-case"
+import React, { useRef, useState } from "react"
+import { Link as RouterLink } from "react-router-dom"
+import { set, sub, formatDistanceToNow } from "date-fns"
+import { Icon } from "@iconify/react"
+import bellFill from "@iconify/icons-eva/bell-fill"
+import clockFill from "@iconify/icons-eva/clock-fill"
+import doneAllFill from "@iconify/icons-eva/done-all-fill"
+import { alpha } from "@mui/material/styles"
 import {
   Box,
   List,
@@ -23,15 +23,15 @@ import {
   ListSubheader,
   ListItemAvatar,
   ListItemButton,
-} from "@mui/material";
-import { mockImgAvatar } from "@/utils/mockImages";
-import Scrollbar from "@/components/Scrollbar";
-import MenuPopover from "@/components/MenuPopover";
+} from "@mui/material"
+import { mockImgAvatar } from "@/utils/mockImages"
+import Scrollbar from "@/components/Scrollbar"
+import MenuPopover from "@/components/MenuPopover"
 
-import icNotificationMail from "@/assets/images/icons/ic_notification_mail.svg";
-import icNotificationChat from "@/assets/images/icons/ic_notification_chat.svg";
-import icNotificationPackage from "@/assets/images/icons/ic_notification_package.svg";
-import icNotificationShipping from "@/assets/images/icons/ic_notification_shipping.svg";
+import icNotificationMail from "@/assets/images/icons/ic_notification_mail.svg"
+import icNotificationChat from "@/assets/images/icons/ic_notification_chat.svg"
+import icNotificationPackage from "@/assets/images/icons/ic_notification_package.svg"
+import icNotificationShipping from "@/assets/images/icons/ic_notification_shipping.svg"
 
 const NOTIFICATIONS = [
   {
@@ -79,7 +79,7 @@ const NOTIFICATIONS = [
     createdAt: sub(new Date(), { days: 3, hours: 3, minutes: 30 }),
     isUnRead: false,
   },
-];
+]
 
 function renderContent(notification) {
   const title = (
@@ -89,45 +89,45 @@ function renderContent(notification) {
         &nbsp; {noCase(notification.description)}
       </Typography>
     </Typography>
-  );
+  )
 
   if (notification.type === "order_placed") {
     return {
       avatar: <img alt={notification.title} src={icNotificationPackage} />,
       title,
-    };
+    }
   }
   if (notification.type === "order_shipped") {
     return {
       avatar: <img alt={notification.title} src={icNotificationShipping} />,
       title,
-    };
+    }
   }
   if (notification.type === "mail") {
     return {
       avatar: <img alt={notification.title} src={icNotificationMail} />,
       title,
-    };
+    }
   }
   if (notification.type === "chat_message") {
     return {
       avatar: <img alt={notification.title} src={icNotificationChat} />,
       title,
-    };
+    }
   }
   return {
     avatar: <img alt={notification.title} src={notification.avatar} />,
     title,
-  };
+  }
 }
 
 interface Props {
-  notification;
+  notification
 }
 
 const NotificationItem = (props: Props): JSX.Element => {
-  const { notification } = props;
-  const { avatar, title } = renderContent(notification);
+  const { notification } = props
+  const { avatar, title } = renderContent(notification)
 
   return (
     <ListItemButton
@@ -164,22 +164,22 @@ const NotificationItem = (props: Props): JSX.Element => {
         }
       />
     </ListItemButton>
-  );
-};
+  )
+}
 
 const NotificationsPopover = (): JSX.Element => {
-  const anchorRef = useRef(null);
-  const [open, setOpen] = useState(false);
-  const [notifications, setNotifications] = useState(NOTIFICATIONS);
-  const totalUnRead = notifications.filter((item) => item.isUnRead).length;
+  const anchorRef = useRef(null)
+  const [open, setOpen] = useState(false)
+  const [notifications, setNotifications] = useState(NOTIFICATIONS)
+  const totalUnRead = notifications.filter((item) => item.isUnRead).length
 
   const handleOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const handleMarkAllAsRead = () => {
     setNotifications(
@@ -187,8 +187,8 @@ const NotificationsPopover = (): JSX.Element => {
         ...notification,
         isUnRead: false,
       })),
-    );
-  };
+    )
+  }
 
   return (
     <>
@@ -271,7 +271,7 @@ const NotificationsPopover = (): JSX.Element => {
         </Box>
       </MenuPopover>
     </>
-  );
-};
+  )
+}
 
-export default NotificationsPopover;
+export default NotificationsPopover

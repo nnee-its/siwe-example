@@ -1,10 +1,10 @@
-import * as Yup from "yup";
-import React, { useState } from "react";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { useFormik, Form, FormikProvider } from "formik";
-import { Icon } from "@iconify/react";
-import eyeFill from "@iconify/icons-eva/eye-fill";
-import eyeOffFill from "@iconify/icons-eva/eye-off-fill";
+import * as Yup from "yup"
+import React, { useState } from "react"
+import { Link as RouterLink, useNavigate } from "react-router-dom"
+import { useFormik, Form, FormikProvider } from "formik"
+import { Icon } from "@iconify/react"
+import eyeFill from "@iconify/icons-eva/eye-fill"
+import eyeOffFill from "@iconify/icons-eva/eye-off-fill"
 import {
   Link,
   Stack,
@@ -13,19 +13,19 @@ import {
   IconButton,
   InputAdornment,
   FormControlLabel,
-} from "@mui/material";
-import { LoadingButton } from "@mui/lab";
+} from "@mui/material"
+import { LoadingButton } from "@mui/lab"
 
 // ----------------------------------------------------------------------
 
 const LoginForm = (): JSX.Element => {
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false)
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email("Email must be a valid email address").required("Email is required"),
     password: Yup.string().required("Password is required"),
-  });
+  })
 
   const formik = useFormik({
     initialValues: {
@@ -35,15 +35,15 @@ const LoginForm = (): JSX.Element => {
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
-      navigate("/dashboard", { replace: true });
+      navigate("/dashboard", { replace: true })
     },
-  });
+  })
 
-  const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
+  const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik
 
   const handleShowPassword = () => {
-    setShowPassword((show) => !show);
-  };
+    setShowPassword((show) => !show)
+  }
 
   return (
     <FormikProvider value={formik}>
@@ -101,7 +101,7 @@ const LoginForm = (): JSX.Element => {
         </LoadingButton>
       </Form>
     </FormikProvider>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

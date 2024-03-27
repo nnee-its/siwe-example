@@ -1,31 +1,31 @@
-import { faker } from "@faker-js/faker";
-import React from "react";
-import { Icon } from "@iconify/react";
-import { formatDistance } from "date-fns";
-import { Link as RouterLink } from "react-router-dom";
-import arrowIosForwardFill from "@iconify/icons-eva/arrow-ios-forward-fill";
-import { Box, Stack, Link, Card, Button, Divider, Typography, CardHeader } from "@mui/material";
-import { mockImgCover } from "@/utils/mockImages";
-import Scrollbar from "../../Scrollbar";
-import { News } from "@/models";
+import { faker } from "@faker-js/faker"
+import React from "react"
+import { Icon } from "@iconify/react"
+import { formatDistance } from "date-fns"
+import { Link as RouterLink } from "react-router-dom"
+import arrowIosForwardFill from "@iconify/icons-eva/arrow-ios-forward-fill"
+import { Box, Stack, Link, Card, Button, Divider, Typography, CardHeader } from "@mui/material"
+import { mockImgCover } from "@/utils/mockImages"
+import Scrollbar from "../../Scrollbar"
+import { News } from "@/models"
 
 const NEWS = [...Array(5)].map((_, index) => {
-  const setIndex = index + 1;
+  const setIndex = index + 1
   return {
     title: faker.name.jobTitle(),
     description: faker.lorem.paragraphs(),
     image: mockImgCover(setIndex),
     postedAt: faker.date.soon(),
-  };
-});
+  }
+})
 
 interface Props {
-  news: News;
+  news: News
 }
 
 const NewsItem = (props: Props) => {
-  const { news } = props;
-  const { image, title, description, postedAt } = news;
+  const { news } = props
+  const { image, title, description, postedAt } = news
 
   return (
     <Stack direction="row" alignItems="center" spacing={2}>
@@ -49,8 +49,8 @@ const NewsItem = (props: Props) => {
         {formatDistance(postedAt, new Date())}
       </Typography>
     </Stack>
-  );
-};
+  )
+}
 
 const AppNewsUpdate = (): JSX.Element => {
   return (
@@ -79,7 +79,7 @@ const AppNewsUpdate = (): JSX.Element => {
         </Button>
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default AppNewsUpdate;
+export default AppNewsUpdate

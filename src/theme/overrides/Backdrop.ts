@@ -1,9 +1,9 @@
-import { alpha } from "@mui/material/styles";
-import { Theme } from "@mui/material";
+import { alpha } from "@mui/material/styles"
+import { Theme } from "@mui/material"
 
 const Backdrop = (theme: Theme) => {
-  const varLow = alpha(theme.palette.grey[900], 0.48);
-  const varHigh = alpha(theme.palette.grey[900], 1);
+  const varLow = alpha(theme.palette.grey[900], 0.48)
+  const varHigh = alpha(theme.palette.grey[900], 1)
 
   return {
     MuiBackdrop: {
@@ -21,7 +21,7 @@ const Backdrop = (theme: Theme) => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default Backdrop;
+export default Backdrop

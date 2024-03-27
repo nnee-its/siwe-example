@@ -1,9 +1,9 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import bugFilled from "@iconify/icons-ant-design/bug-filled";
-import { alpha, styled } from "@mui/material/styles";
-import { Card, Typography } from "@mui/material";
-import { fShortenNumber } from "@/utils/formatNumber";
+import React from "react"
+import { Icon } from "@iconify/react"
+import bugFilled from "@iconify/icons-ant-design/bug-filled"
+import { alpha, styled } from "@mui/material/styles"
+import { Card, Typography } from "@mui/material"
+import { fShortenNumber } from "@/utils/formatNumber"
 
 const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: "none",
@@ -11,7 +11,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
   padding: theme.spacing(5, 0),
   // color: theme.palette.error.darker,
   // backgroundColor: theme.palette.error.lighter
-}));
+}))
 
 const IconWrapperStyle = styled("div")(({ theme }) => ({
   margin: "auto",
@@ -27,9 +27,9 @@ const IconWrapperStyle = styled("div")(({ theme }) => ({
     theme.palette.error.dark,
     0.24,
   )} 100%)`,
-}));
+}))
 
-const TOTAL = 234;
+const TOTAL = 234
 
 const AppBugReports = (): JSX.Element => {
   return (
@@ -42,7 +42,7 @@ const AppBugReports = (): JSX.Element => {
         Bug Reports
       </Typography>
     </RootStyle>
-  );
-};
+  )
+}
 
-export default AppBugReports;
+export default AppBugReports

@@ -1,4 +1,4 @@
-import { Theme } from "@mui/material";
+import { Theme } from "@mui/material"
 
 const Lists = (theme: Theme) => {
   return {
@@ -31,7 +31,7 @@ const Lists = (theme: Theme) => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default Lists;
+export default Lists

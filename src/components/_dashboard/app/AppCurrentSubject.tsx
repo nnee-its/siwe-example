@@ -1,13 +1,13 @@
-import React from "react";
-import { merge } from "lodash";
-import ReactApexChart from "react-apexcharts";
-import { useTheme, styled } from "@mui/material/styles";
-import { Card, CardHeader } from "@mui/material";
-import { BaseOptionChart } from "@/components/charts";
-import { ApexOptions } from "apexcharts";
+import React from "react"
+import { merge } from "lodash"
+import ReactApexChart from "react-apexcharts"
+import { useTheme, styled } from "@mui/material/styles"
+import { Card, CardHeader } from "@mui/material"
+import { BaseOptionChart } from "@/components/charts"
+import { ApexOptions } from "apexcharts"
 
-const CHART_HEIGHT = 392;
-const LEGEND_HEIGHT = 72;
+const CHART_HEIGHT = 392
+const LEGEND_HEIGHT = 72
 
 const ChartWrapperStyle = styled("div")(({ theme }) => ({
   height: CHART_HEIGHT,
@@ -25,7 +25,7 @@ const ChartWrapperStyle = styled("div")(({ theme }) => ({
     borderTop: `solid 1px ${theme.palette.divider}`,
     top: `calc(${CHART_HEIGHT - LEGEND_HEIGHT}px) !important`,
   },
-}));
+}))
 
 // ----------------------------------------------------------------------
 
@@ -33,10 +33,10 @@ const CHART_DATA = [
   { name: "Series 1", data: [80, 50, 30, 40, 100, 20] },
   { name: "Series 2", data: [20, 30, 40, 80, 20, 80] },
   { name: "Series 3", data: [44, 76, 78, 13, 43, 10] },
-];
+]
 
 const AppCurrentSubject = (): JSX.Element => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const chartOptions: ApexOptions = merge(BaseOptionChart(), {
     stroke: { width: 2 },
@@ -57,7 +57,7 @@ const AppCurrentSubject = (): JSX.Element => {
         },
       },
     },
-  });
+  })
 
   return (
     <Card>
@@ -66,7 +66,7 @@ const AppCurrentSubject = (): JSX.Element => {
         <ReactApexChart type="radar" series={CHART_DATA} options={chartOptions} height={340} />
       </ChartWrapperStyle>
     </Card>
-  );
-};
+  )
+}
 
-export default AppCurrentSubject;
+export default AppCurrentSubject

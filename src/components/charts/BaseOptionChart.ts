@@ -1,5 +1,5 @@
-import { createStyles, makeStyles } from "@mui/styles";
-import { useTheme } from "@mui/material/styles";
+import { createStyles, makeStyles } from "@mui/styles"
+import { useTheme } from "@mui/material/styles"
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -45,24 +45,24 @@ const useStyles = makeStyles(() =>
       },
     },
   }),
-);
+)
 
 const BaseOptionChart = () => {
-  useStyles();
-  const theme = useTheme();
+  useStyles()
+  const theme = useTheme()
 
   const LABEL_TOTAL = {
     show: true,
     label: "Total",
     color: theme.palette.text.secondary,
     ...theme.typography.subtitle2,
-  };
+  }
 
   const LABEL_VALUE = {
     offsetY: 8,
     color: theme.palette.text.primary,
     ...theme.typography.h3,
-  };
+  }
 
   return {
     // Colors
@@ -192,7 +192,7 @@ const BaseOptionChart = () => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default BaseOptionChart;
+export default BaseOptionChart

@@ -1,4 +1,4 @@
-import { withStyles } from "@mui/styles";
+import { withStyles } from "@mui/styles"
 
 const GlobalStyles = withStyles((theme) => ({
   "@global": {
@@ -37,6 +37,6 @@ const GlobalStyles = withStyles((theme) => ({
     a: { color: theme.palette?.primary?.main },
     img: { display: "block", maxWidth: "100%" },
   },
-}))(() => null);
+}))(() => null)
 
-export default GlobalStyles;
+export default GlobalStyles

@@ -1,4 +1,4 @@
-import { Theme } from "@mui/material";
+import { Theme } from "@mui/material"
 
 const Typography = (theme: Theme) => {
   return {
@@ -12,7 +12,7 @@ const Typography = (theme: Theme) => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default Typography;
+export default Typography

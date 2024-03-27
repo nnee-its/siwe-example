@@ -11,6 +11,6 @@ const Paper = () => {
         },
       },
     },
-  };
-};
-export default Paper;
+  }
+}
+export default Paper

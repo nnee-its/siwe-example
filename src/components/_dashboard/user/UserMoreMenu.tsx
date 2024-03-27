@@ -1,14 +1,14 @@
-import { Icon } from "@iconify/react";
-import React, { useRef, useState } from "react";
-import editFill from "@iconify/icons-eva/edit-fill";
-import { Link as RouterLink } from "react-router-dom";
-import trash2Outline from "@iconify/icons-eva/trash-2-outline";
-import moreVerticalFill from "@iconify/icons-eva/more-vertical-fill";
-import { Menu, MenuItem, IconButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Icon } from "@iconify/react"
+import React, { useRef, useState } from "react"
+import editFill from "@iconify/icons-eva/edit-fill"
+import { Link as RouterLink } from "react-router-dom"
+import trash2Outline from "@iconify/icons-eva/trash-2-outline"
+import moreVerticalFill from "@iconify/icons-eva/more-vertical-fill"
+import { Menu, MenuItem, IconButton, ListItemIcon, ListItemText } from "@mui/material"
 
 const UserMoreMenu = (): JSX.Element => {
-  const ref = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef(null)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
@@ -41,7 +41,7 @@ const UserMoreMenu = (): JSX.Element => {
         </MenuItem>
       </Menu>
     </>
-  );
-};
+  )
+}
 
-export default UserMoreMenu;
+export default UserMoreMenu

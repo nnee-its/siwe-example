@@ -1,14 +1,14 @@
-import React from "react";
-import { Box } from "@mui/material";
-import LogoImage from "@/assets/images/logo.svg";
+import React from "react"
+import { Box } from "@mui/material"
+import LogoImage from "@/assets/images/logo.svg"
 
 interface Props {
-  sx?;
+  sx?
 }
 
 const Logo = (props: Props): JSX.Element => {
-  const { sx } = props;
-  return <Box component="img" src={LogoImage} sx={{ width: 40, height: 40, ...sx }} />;
-};
+  const { sx } = props
+  return <Box component="img" src={LogoImage} sx={{ width: 40, height: 40, ...sx }} />
+}
 
-export default Logo;
+export default Logo

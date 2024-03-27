@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
-import { alpha } from "@mui/material/styles";
-import { Box, MenuItem, ListItemIcon, ListItemText, IconButton } from "@mui/material";
-import MenuPopover from "@/components/MenuPopover";
+import React, { useRef, useState } from "react"
+import { alpha } from "@mui/material/styles"
+import { Box, MenuItem, ListItemIcon, ListItemText, IconButton } from "@mui/material"
+import MenuPopover from "@/components/MenuPopover"
 
-import flagEn from "@/assets/images/icons/ic_flag_en.svg";
-import flagDe from "@/assets/images/icons/ic_flag_de.svg";
-import flagFr from "@/assets/images/icons/ic_flag_fr.svg";
+import flagEn from "@/assets/images/icons/ic_flag_en.svg"
+import flagDe from "@/assets/images/icons/ic_flag_de.svg"
+import flagFr from "@/assets/images/icons/ic_flag_fr.svg"
 
 const LANGS = [
   {
@@ -23,19 +23,19 @@ const LANGS = [
     label: "French",
     icon: flagFr,
   },
-];
+]
 
 const LanguagePopover = (): JSX.Element => {
-  const anchorRef = useRef(null);
-  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null)
+  const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <>
@@ -75,7 +75,7 @@ const LanguagePopover = (): JSX.Element => {
         </Box>
       </MenuPopover>
     </>
-  );
-};
+  )
+}
 
-export default LanguagePopover;
+export default LanguagePopover

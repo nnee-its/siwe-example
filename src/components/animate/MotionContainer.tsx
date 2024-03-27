@@ -1,17 +1,17 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Box } from "@mui/material";
-import { varWrapEnter } from "@/components/animate/variants";
+import React from "react"
+import { motion } from "framer-motion"
+import { Box } from "@mui/material"
+import { varWrapEnter } from "@/components/animate/variants"
 
 interface Props {
-  open: boolean;
-  children?: JSX.Element;
-  other?;
-  initial?;
+  open: boolean
+  children?: JSX.Element
+  other?
+  initial?
 }
 
 const MotionContainer = (props: Props): JSX.Element => {
-  const { open, children, ...other } = props;
+  const { open, children, ...other } = props
   return (
     <Box
       component={motion.div}
@@ -22,7 +22,7 @@ const MotionContainer = (props: Props): JSX.Element => {
     >
       {children}
     </Box>
-  );
-};
+  )
+}
 
-export default MotionContainer;
+export default MotionContainer

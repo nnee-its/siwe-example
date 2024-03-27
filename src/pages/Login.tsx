@@ -1,18 +1,19 @@
-import IllustrationLoginImage from "@/assets/images/illustrations/illustration_login.png";
-import { MHidden } from "@/components/@material-extend";
-import Page from "@/components/Page";
-import AuthSocial from "@/components/authentication/AuthSocial";
-import { Card, Container, Link, Stack, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import AuthLayout from "../layouts/AuthLayout";
+import IllustrationLoginImage from "@/assets/images/illustrations/illustration_login.png"
+import { MHidden } from "@/components/@material-extend"
+import Page from "@/components/Page"
+import AuthSocial from "@/components/authentication/AuthSocial"
+import Siwe from "@/modules/auth/components/Siwe"
+import { Card, Container, Link, Stack, Typography } from "@mui/material"
+import { styled } from "@mui/material/styles"
+import React from "react"
+import { Link as RouterLink } from "react-router-dom"
+import AuthLayout from "../layouts/AuthLayout"
 
 const RootStyle = styled(Page)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     display: "flex",
   },
-}));
+}))
 
 const SectionStyle = styled(Card)(({ theme }) => ({
   width: "100%",
@@ -21,7 +22,7 @@ const SectionStyle = styled(Card)(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "center",
   margin: theme.spacing(2, 0, 2, 2),
-}));
+}))
 
 const ContentStyle = styled("div")(({ theme }) => ({
   maxWidth: 480,
@@ -31,7 +32,7 @@ const ContentStyle = styled("div")(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "center",
   padding: theme.spacing(12, 0),
-}));
+}))
 
 const Login = (): JSX.Element => {
   return (
@@ -61,7 +62,7 @@ const Login = (): JSX.Element => {
             <Typography sx={{ color: "text.secondary" }}>Enter your details below.</Typography>
           </Stack>
           <AuthSocial />
-
+          <Siwe />
           {/* <LoginForm /> */}
 
           <MHidden width="smUp">
@@ -75,7 +76,7 @@ const Login = (): JSX.Element => {
         </ContentStyle>
       </Container>
     </RootStyle>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

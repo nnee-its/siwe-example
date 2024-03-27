@@ -1,4 +1,4 @@
-import { Theme } from "@mui/material";
+import { Theme } from "@mui/material"
 
 const Card = (theme: Theme) => {
   return {
@@ -30,7 +30,7 @@ const Card = (theme: Theme) => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default Card;
+export default Card

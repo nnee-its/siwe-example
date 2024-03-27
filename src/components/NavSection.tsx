@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Icon } from "@iconify/react";
-import { NavLink as RouterLink, matchPath, useLocation } from "react-router-dom";
-import arrowIosForwardFill from "@iconify/icons-eva/arrow-ios-forward-fill";
-import arrowIosDownwardFill from "@iconify/icons-eva/arrow-ios-downward-fill";
-import { alpha, useTheme, styled } from "@mui/material/styles";
-import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton } from "@mui/material";
-import { NavItemConfig } from "@/models";
+import React, { useState } from "react"
+import { Icon } from "@iconify/react"
+import { NavLink as RouterLink, matchPath, useLocation } from "react-router-dom"
+import arrowIosForwardFill from "@iconify/icons-eva/arrow-ios-forward-fill"
+import arrowIosDownwardFill from "@iconify/icons-eva/arrow-ios-downward-fill"
+import { alpha, useTheme, styled } from "@mui/material/styles"
+import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton } from "@mui/material"
+import { NavItemConfig } from "@/models"
 
 const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props} />)(
   ({ theme }) => ({
@@ -28,7 +28,7 @@ const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props
       backgroundColor: theme.palette.primary.main,
     },
   }),
-);
+)
 
 const ListItemIconStyle = styled(ListItemIcon)({
   width: 22,
@@ -36,35 +36,35 @@ const ListItemIconStyle = styled(ListItemIcon)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-});
+})
 
 interface NavItemProps {
-  item: NavItemConfig;
-  active: (path: string) => boolean;
+  item: NavItemConfig
+  active: (path: string) => boolean
 }
 
 function NavItem(props: NavItemProps) {
-  const { item, active } = props;
-  const theme = useTheme();
-  const isActiveRoot = active(item.path);
-  const { title, path, icon, info, children } = item;
-  const [open, setOpen] = useState(isActiveRoot);
+  const { item, active } = props
+  const theme = useTheme()
+  const isActiveRoot = active(item.path)
+  const { title, path, icon, info, children } = item
+  const [open, setOpen] = useState(isActiveRoot)
 
   const handleOpen = () => {
-    setOpen((prev) => !prev);
-  };
+    setOpen((prev) => !prev)
+  }
 
   const activeRootStyle = {
     color: "primary.main",
     fontWeight: "fontWeightMedium",
     bgcolor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
     "&:before": { display: "block" },
-  };
+  }
 
   const activeSubStyle = {
     color: "text.primary",
     fontWeight: "fontWeightMedium",
-  };
+  }
 
   if (children) {
     return (
@@ -88,8 +88,8 @@ function NavItem(props: NavItemProps) {
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             {children.map((item) => {
-              const { title, path } = item;
-              const isActiveSub = active(path);
+              const { title, path } = item
+              const isActiveSub = active(path)
 
               return (
                 <ListItemStyle
@@ -121,12 +121,12 @@ function NavItem(props: NavItemProps) {
                   </ListItemIconStyle>
                   <ListItemText disableTypography primary={title} />
                 </ListItemStyle>
-              );
+              )
             })}
           </List>
         </Collapse>
       </>
-    );
+    )
   }
 
   return (
@@ -141,18 +141,18 @@ function NavItem(props: NavItemProps) {
       <ListItemText disableTypography primary={title} />
       {info && info}
     </ListItemStyle>
-  );
+  )
 }
 
 interface Props {
-  navConfig: NavItemConfig[];
-  other?;
+  navConfig: NavItemConfig[]
+  other?
 }
 
 const NavSection = (props: Props): JSX.Element => {
-  const { navConfig, ...other } = props;
-  const { pathname } = useLocation();
-  const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
+  const { navConfig, ...other } = props
+  const { pathname } = useLocation()
+  const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false)
 
   return (
     <Box {...other}>
@@ -162,7 +162,7 @@ const NavSection = (props: Props): JSX.Element => {
         ))}
       </List>
     </Box>
-  );
-};
+  )
+}
 
-export default NavSection;
+export default NavSection

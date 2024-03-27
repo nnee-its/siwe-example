@@ -1,14 +1,14 @@
-import React from "react";
-import { Grid } from "@mui/material";
-import ShopProductCard from "@/components/_dashboard/products/ProductCard";
+import React from "react"
+import { Grid } from "@mui/material"
+import ShopProductCard from "@/components/_dashboard/products/ProductCard"
 
 interface Props {
-  products;
-  order?;
+  products
+  order?
 }
 
 const ProductList = (props: Props): JSX.Element => {
-  const { products, ...other } = props;
+  const { products, ...other } = props
   return (
     <Grid container spacing={3} {...other}>
       {products.map((product) => (
@@ -17,7 +17,7 @@ const ProductList = (props: Props): JSX.Element => {
         </Grid>
       ))}
     </Grid>
-  );
-};
+  )
+}
 
-export default ProductList;
+export default ProductList

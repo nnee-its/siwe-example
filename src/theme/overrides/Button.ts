@@ -1,4 +1,4 @@
-import { Theme } from "@mui/material";
+import { Theme } from "@mui/material"
 
 const Button = (theme: Theme) => {
   return {
@@ -38,7 +38,7 @@ const Button = (theme: Theme) => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default Button;
+export default Button

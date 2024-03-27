@@ -1,17 +1,17 @@
-import { useFormik } from "formik";
-import React, { useState } from "react";
-import { Container, Stack, Typography } from "@mui/material";
-import Page from "@/components/Page";
+import { useFormik } from "formik"
+import React, { useState } from "react"
+import { Container, Stack, Typography } from "@mui/material"
+import Page from "@/components/Page"
 import {
   ProductSort,
   ProductList,
   ProductCartWidget,
   ProductFilterSidebar,
-} from "@/components/_dashboard/products";
-import PRODUCTS from "@/_mocks_/products";
+} from "@/components/_dashboard/products"
+import PRODUCTS from "@/_mocks_/products"
 
 const EcommerceShop = (): JSX.Element => {
-  const [openFilter, setOpenFilter] = useState(false);
+  const [openFilter, setOpenFilter] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -22,24 +22,24 @@ const EcommerceShop = (): JSX.Element => {
       rating: "",
     },
     onSubmit: () => {
-      setOpenFilter(false);
+      setOpenFilter(false)
     },
-  });
+  })
 
-  const { resetForm, handleSubmit } = formik;
+  const { resetForm, handleSubmit } = formik
 
   const handleOpenFilter = () => {
-    setOpenFilter(true);
-  };
+    setOpenFilter(true)
+  }
 
   const handleCloseFilter = () => {
-    setOpenFilter(false);
-  };
+    setOpenFilter(false)
+  }
 
   const handleResetFilter = () => {
-    handleSubmit();
-    resetForm();
-  };
+    handleSubmit()
+    resetForm()
+  }
 
   return (
     <Page title="Dashboard: Products | Minimal-UI">
@@ -71,7 +71,7 @@ const EcommerceShop = (): JSX.Element => {
         <ProductCartWidget />
       </Container>
     </Page>
-  );
-};
+  )
+}
 
-export default EcommerceShop;
+export default EcommerceShop

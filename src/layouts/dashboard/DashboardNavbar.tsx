@@ -1,18 +1,18 @@
-import React from "react";
+import React from "react"
 
-import { Icon } from "@iconify/react";
-import menu2Fill from "@iconify/icons-eva/menu-2-fill";
-import { alpha, styled } from "@mui/material/styles";
-import { Box, Stack, AppBar, Toolbar, IconButton } from "@mui/material";
-import { MHidden } from "@/components/@material-extend";
-import Searchbar from "./Searchbar";
-import AccountPopover from "./AccountPopover";
-import LanguagePopover from "./LanguagePopover";
-import NotificationsPopover from "./NotificationsPopover";
+import { Icon } from "@iconify/react"
+import menu2Fill from "@iconify/icons-eva/menu-2-fill"
+import { alpha, styled } from "@mui/material/styles"
+import { Box, Stack, AppBar, Toolbar, IconButton } from "@mui/material"
+import { MHidden } from "@/components/@material-extend"
+import Searchbar from "./Searchbar"
+import AccountPopover from "./AccountPopover"
+import LanguagePopover from "./LanguagePopover"
+import NotificationsPopover from "./NotificationsPopover"
 
-const DRAWER_WIDTH = 280;
-const APPBAR_MOBILE = 64;
-const APPBAR_DESKTOP = 92;
+const DRAWER_WIDTH = 280
+const APPBAR_MOBILE = 64
+const APPBAR_DESKTOP = 92
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: "none",
@@ -22,7 +22,7 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {
     width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
   },
-}));
+}))
 
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
   minHeight: APPBAR_MOBILE,
@@ -30,14 +30,14 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
     minHeight: APPBAR_DESKTOP,
     padding: theme.spacing(0, 5),
   },
-}));
+}))
 
 interface Props {
-  onOpenSidebar;
+  onOpenSidebar
 }
 
 const DashboardNavbar = (props: Props): JSX.Element => {
-  const { onOpenSidebar } = props;
+  const { onOpenSidebar } = props
   return (
     <RootStyle>
       <ToolbarStyle>
@@ -57,7 +57,7 @@ const DashboardNavbar = (props: Props): JSX.Element => {
         </Stack>
       </ToolbarStyle>
     </RootStyle>
-  );
-};
+  )
+}
 
-export default DashboardNavbar;
+export default DashboardNavbar

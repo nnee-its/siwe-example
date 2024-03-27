@@ -1,7 +1,7 @@
-import React from "react";
-import { faker } from "@faker-js/faker";
+import React from "react"
+import { faker } from "@faker-js/faker"
 
-import { Card, Typography, CardHeader, CardContent } from "@mui/material";
+import { Card, Typography, CardHeader, CardContent } from "@mui/material"
 import {
   Timeline,
   TimelineItem,
@@ -9,8 +9,8 @@ import {
   TimelineConnector,
   TimelineSeparator,
   TimelineDot,
-} from "@mui/lab";
-import { fDateTime } from "@/utils/formatTime";
+} from "@mui/lab"
+import { fDateTime } from "@/utils/formatTime"
 
 const TIMELINES = [
   {
@@ -38,16 +38,16 @@ const TIMELINES = [
     time: faker.date.past(),
     type: "order5",
   },
-];
+]
 
 interface Props {
-  item;
-  isLast: boolean;
+  item
+  isLast: boolean
 }
 
 function OrderItem(props: Props) {
-  const { item, isLast } = props;
-  const { type, title, time } = item;
+  const { item, isLast } = props
+  const { type, title, time } = item
   return (
     <TimelineItem>
       <TimelineSeparator>
@@ -70,7 +70,7 @@ function OrderItem(props: Props) {
         </Typography>
       </TimelineContent>
     </TimelineItem>
-  );
+  )
 }
 
 const AppOrderTimeline = (): JSX.Element => {
@@ -91,7 +91,7 @@ const AppOrderTimeline = (): JSX.Element => {
         </Timeline>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default AppOrderTimeline;
+export default AppOrderTimeline

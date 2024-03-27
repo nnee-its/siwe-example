@@ -1,13 +1,13 @@
-import { Icon } from "@iconify/react";
-import React, { useRef, useState } from "react";
-import homeFill from "@iconify/icons-eva/home-fill";
-import personFill from "@iconify/icons-eva/person-fill";
-import settings2Fill from "@iconify/icons-eva/settings-2-fill";
-import { Link as RouterLink } from "react-router-dom";
-import { alpha } from "@mui/material/styles";
-import { Button, Box, Divider, MenuItem, Typography, Avatar, IconButton } from "@mui/material";
-import MenuPopover from "@/components/MenuPopover";
-import account from "@/_mocks_/account";
+import { Icon } from "@iconify/react"
+import React, { useRef, useState } from "react"
+import homeFill from "@iconify/icons-eva/home-fill"
+import personFill from "@iconify/icons-eva/person-fill"
+import settings2Fill from "@iconify/icons-eva/settings-2-fill"
+import { Link as RouterLink } from "react-router-dom"
+import { alpha } from "@mui/material/styles"
+import { Button, Box, Divider, MenuItem, Typography, Avatar, IconButton } from "@mui/material"
+import MenuPopover from "@/components/MenuPopover"
+import account from "@/_mocks_/account"
 
 const MENU_OPTIONS = [
   {
@@ -25,18 +25,18 @@ const MENU_OPTIONS = [
     icon: settings2Fill,
     linkTo: "#",
   },
-];
+]
 
 const AccountPopover = (): JSX.Element => {
-  const anchorRef = useRef(null);
-  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null)
+  const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <>
@@ -109,7 +109,7 @@ const AccountPopover = (): JSX.Element => {
         </Box>
       </MenuPopover>
     </>
-  );
-};
+  )
+}
 
-export default AccountPopover;
+export default AccountPopover

@@ -1,9 +1,9 @@
-import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import { Typography } from "@mui/material";
-import Logo from "@/components/Logo";
-import { MHidden } from "@/components/@material-extend";
+import React from "react"
+import { Link as RouterLink } from "react-router-dom"
+import { styled } from "@mui/material/styles"
+import { Typography } from "@mui/material"
+import Logo from "@/components/Logo"
+import { MHidden } from "@/components/@material-extend"
 
 const HeaderStyle = styled("header")(({ theme }) => ({
   top: 0,
@@ -19,14 +19,14 @@ const HeaderStyle = styled("header")(({ theme }) => ({
     alignItems: "flex-start",
     padding: theme.spacing(7, 5, 0, 7),
   },
-}));
+}))
 
 interface Props {
-  children?;
+  children?
 }
 
 const AuthLayout = (props: Props): JSX.Element => {
-  const { children } = props;
+  const { children } = props
   return (
     <HeaderStyle>
       <RouterLink to="/">
@@ -44,7 +44,7 @@ const AuthLayout = (props: Props): JSX.Element => {
         </Typography>
       </MHidden>
     </HeaderStyle>
-  );
-};
+  )
+}
 
-export default AuthLayout;
+export default AuthLayout

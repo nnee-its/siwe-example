@@ -1,14 +1,14 @@
-import React from "react";
-import { Box } from "@mui/material";
+import React from "react"
+import { Box } from "@mui/material"
 
 interface Props {
-  src: string;
-  color: string;
-  sx?;
+  src: string
+  color: string
+  sx?
 }
 
 const SvgIconStyle = (props: Props): JSX.Element => {
-  const { src, color = "inherit", sx } = props;
+  const { src, color = "inherit", sx } = props
   return (
     <Box
       component="span"
@@ -25,7 +25,7 @@ const SvgIconStyle = (props: Props): JSX.Element => {
         ...sx,
       }}
     />
-  );
-};
+  )
+}
 
-export default SvgIconStyle;
+export default SvgIconStyle

@@ -1,7 +1,7 @@
-import { faker } from "@faker-js/faker";
-import { sample } from "lodash";
-import { mockImgAvatar } from "@/utils/mockImages";
-import { IUser } from "@/models";
+import { faker } from "@faker-js/faker"
+import { sample } from "lodash"
+import { mockImgAvatar } from "@/utils/mockImages"
+import { IUser } from "@/models"
 
 const users: IUser[] = [...Array(24)].map((_, index) => ({
   id: faker.datatype.uuid() as string,
@@ -22,6 +22,6 @@ const users: IUser[] = [...Array(24)].map((_, index) => ({
     "Front End Developer",
     "Full Stack Developer",
   ]),
-}));
+}))
 
-export default users;
+export default users

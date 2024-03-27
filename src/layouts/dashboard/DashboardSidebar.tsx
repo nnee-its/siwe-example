@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import { Box, Link, Drawer, Typography, Avatar } from "@mui/material";
-import Logo from "@/components/Logo";
-import Scrollbar from "@/components/Scrollbar";
-import NavSection from "@/components/NavSection";
-import { MHidden } from "@/components/@material-extend";
-import sidebarConfig from "./SidebarConfig";
-import account from "@/_mocks_/account";
+import React, { useEffect } from "react"
+import { Link as RouterLink, useLocation } from "react-router-dom"
+import { styled } from "@mui/material/styles"
+import { Box, Link, Drawer, Typography, Avatar } from "@mui/material"
+import Logo from "@/components/Logo"
+import Scrollbar from "@/components/Scrollbar"
+import NavSection from "@/components/NavSection"
+import { MHidden } from "@/components/@material-extend"
+import sidebarConfig from "./SidebarConfig"
+import account from "@/_mocks_/account"
 
-const DRAWER_WIDTH = 280;
+const DRAWER_WIDTH = 280
 
 const RootStyle = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {
     flexShrink: 0,
     width: DRAWER_WIDTH,
   },
-}));
+}))
 
 const AccountStyle = styled("div")(({ theme }) => ({
   display: "flex",
@@ -24,22 +24,22 @@ const AccountStyle = styled("div")(({ theme }) => ({
   padding: theme.spacing(2, 2.5),
   // borderRadius: theme.shape.borderRadiusSm,
   backgroundColor: theme.palette.grey[200],
-}));
+}))
 
 interface Props {
-  isOpenSidebar?;
-  onCloseSidebar?;
+  isOpenSidebar?
+  onCloseSidebar?
 }
 
 const DashboardSidebar = (props: Props): JSX.Element => {
-  const { isOpenSidebar, onCloseSidebar } = props;
-  const { pathname } = useLocation();
+  const { isOpenSidebar, onCloseSidebar } = props
+  const { pathname } = useLocation()
 
   useEffect(() => {
     if (isOpenSidebar) {
-      onCloseSidebar();
+      onCloseSidebar()
     }
-  }, [pathname]);
+  }, [pathname])
 
   const renderContent = (
     <Scrollbar
@@ -74,7 +74,7 @@ const DashboardSidebar = (props: Props): JSX.Element => {
 
       <Box sx={{ flexGrow: 1 }} />
     </Scrollbar>
-  );
+  )
 
   return (
     <RootStyle>
@@ -105,7 +105,7 @@ const DashboardSidebar = (props: Props): JSX.Element => {
         </Drawer>
       </MHidden>
     </RootStyle>
-  );
-};
+  )
+}
 
-export default DashboardSidebar;
+export default DashboardSidebar

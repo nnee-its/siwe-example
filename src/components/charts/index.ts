@@ -1,1 +1,1 @@
-export { default as BaseOptionChart } from "@/components/charts/BaseOptionChart";
+export { default as BaseOptionChart } from "@/components/charts/BaseOptionChart"
