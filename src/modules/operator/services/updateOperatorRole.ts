@@ -2,16 +2,11 @@ import { api } from "@/config/api"
 import { useMutation } from "@tanstack/react-query"
 import { OperatorRole } from "../types/operator"
 
-interface UpdateOperatorRoleRequest {
-  walletAddress: string
-  role: OperatorRole
-}
-
-export function updateOperatorRole({ walletAddress, role }: UpdateOperatorRoleRequest) {
+export function updateOperatorRole(walletAddress: string, role: OperatorRole) {
   return api.patch(`/operator/${walletAddress}/role`, { role })
 }
-export function useUpdateOperatorRole() {
+export function useUpdateOperatorRole(walletAddress: string) {
   return useMutation({
-    mutationFn: updateOperatorRole,
+    mutationFn: (role: OperatorRole) => updateOperatorRole(walletAddress, role),
   })
 }

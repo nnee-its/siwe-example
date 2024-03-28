@@ -1,6 +1,5 @@
 import LogoOnlyLayout from "@/layouts/LogoOnlyLayout"
 import DashboardLayout from "@/layouts/dashboard"
-import Blog from "@/pages/Blog"
 import DashboardApp from "@/pages/DashboardApp"
 import Login from "@/pages/Login"
 import Operator from "@/pages/Operator"
@@ -9,6 +8,7 @@ import Products from "@/pages/Products"
 import Register from "@/pages/Register"
 import React, { ReactElement } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
+import Pool from "./pages/Pool"
 
 export const Router = (): ReactElement => {
   return (
@@ -18,7 +18,8 @@ export const Router = (): ReactElement => {
         <Route path="app" element={<DashboardApp />} />
         <Route path="operator" element={<Operator />} />
         <Route path="products" element={<Products />} />
-        <Route path="blog" element={<Blog />} />
+        {/* <Route path="blog" element={<Blog />} /> */}
+        <Route path="pool" element={<Pool />} />
       </Route>
       <Route path="/" element={<LogoOnlyLayout />}>
         <Route path="login" element={<Login />} />

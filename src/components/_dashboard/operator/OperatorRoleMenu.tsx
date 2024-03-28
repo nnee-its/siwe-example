@@ -13,23 +13,17 @@ const OperatorRoleMenu = ({ data }: OperatorRoleMenuProps): JSX.Element => {
   const ref = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
   const qc = useQueryClient()
-  const updateOperatorRole = useUpdateOperatorRole()
+  const updateOperatorRole = useUpdateOperatorRole(data.walletAddress)
 
   const handleUpdate = (role: OperatorRole) => {
-    updateOperatorRole.mutate(
-      {
-        walletAddress: data.walletAddress,
-        role,
+    updateOperatorRole.mutate(role, {
+      onSuccess() {
+        toast.success("Updated operator role")
+        qc.invalidateQueries({
+          queryKey: ["getOperators"],
+        })
       },
-      {
-        onSuccess() {
-          toast.success("Updated operator role")
-          qc.invalidateQueries({
-            queryKey: ["getOperators"],
-          })
-        },
-      },
-    )
+    })
     setIsOpen(false)
   }
 

@@ -24,9 +24,14 @@ const sidebarConfig: NavItemConfig[] = [
   //   path: "/dashboard/products",
   //   icon: getIcon(shoppingBagFill),
   // },
+  // {
+  //   title: "blog",
+  //   path: "/dashboard/blog",
+  //   icon: getIcon(fileTextFill),
+  // },
   {
-    title: "blog",
-    path: "/dashboard/blog",
+    title: "pool",
+    path: "/dashboard/pool",
     icon: getIcon(fileTextFill),
   },
   {

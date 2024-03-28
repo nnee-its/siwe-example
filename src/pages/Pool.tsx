@@ -1,15 +1,15 @@
 import Page from "@/components/Page"
 import Scrollbar from "@/components/Scrollbar"
-import {
-  OperatorListHead,
-  OperatorListToolbar,
-  OperatorMoreMenu,
-  OperatorRoleMenu,
-} from "@/components/_dashboard/operator"
+import PoolListHead from "@/components/_dashboard/pool/PoolListHead"
+import PoolListToolbar from "@/components/_dashboard/pool/PoolListToolbar"
+import PoolMoreMenu from "@/components/_dashboard/pool/PoolMoreMenu"
 import { HeaderLabel, IUser } from "@/models"
-import { useGetOperators } from "@/modules/operator/services/getOperators"
+import { useGetPools } from "@/modules/pool/services/getPools"
+import plusFill from "@iconify/icons-eva/plus-fill"
+import { Icon } from "@iconify/react"
+
 import {
-  Avatar,
+  Button,
   Card,
   Container,
   Stack,
@@ -22,20 +22,23 @@ import {
   Typography,
 } from "@mui/material"
 import React, { useState } from "react"
+import { NavLink as RouterLink } from "react-router-dom"
 
 const TABLE_HEAD: HeaderLabel[] = [
-  { id: "name", label: "Name", alignRight: false },
-  { id: "walletAddress", label: "Wallet address", alignRight: false },
-  { id: "email", label: "Email", alignRight: false },
-  { id: "role", label: "Role", alignRight: false },
+  { id: "projectName", label: "Project name", alignRight: false },
+  { id: "idoPrice", label: "IDO price", alignRight: false },
+  { id: "totalRaise", label: "Total raise", alignRight: false },
+  { id: "tokenName", label: "Token name", alignRight: false },
+  { id: "tokenNetwork", label: "Token network", alignRight: false },
+  { id: "idoNetwork", label: "IDO network", alignRight: false },
   { id: "actions", label: "Actions", alignRight: false },
 ]
 
-const Operator = (): JSX.Element => {
+const Pool = (): JSX.Element => {
   const [page, setPage] = useState(1)
   const [keyword, setKeyword] = useState("")
   const [rowsPerPage, setRowsPerPage] = useState(5)
-  const operators = useGetOperators({
+  const pools = useGetPools({
     page,
     take: rowsPerPage,
     keyword,
@@ -64,24 +67,24 @@ const Operator = (): JSX.Element => {
   }
 
   return (
-    <Page title="Operator | Minimal-UI">
+    <Page title="Pool | Minimal-UI">
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Operator
+            Pool
           </Typography>
-          {/* <Button
+          <Button
             variant="contained"
             component={RouterLink}
             to="#"
             startIcon={<Icon icon={plusFill} />}
           >
-            New User
-          </Button> */}
+            New pool
+          </Button>
         </Stack>
 
         <Card>
-          <OperatorListToolbar
+          <PoolListToolbar
             numSelected={selected.length}
             filterName={keyword}
             onFilterName={handleFilterByName}
@@ -90,31 +93,26 @@ const Operator = (): JSX.Element => {
           <Scrollbar>
             <TableContainer sx={{ minWidth: 800 }}>
               <Table>
-                <OperatorListHead
+                <PoolListHead
                   order={order}
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
                   onRequestSort={handleRequestSort}
                 />
                 <TableBody>
-                  {operators.data?.data?.map((row) => {
+                  {pools.data?.data?.map((row) => {
                     return (
-                      <TableRow hover key={row.walletAddress} tabIndex={-1} role="checkbox">
+                      <TableRow hover key={row.id} tabIndex={-1} role="checkbox">
                         <TableCell component="th" scope="row" padding="none">
-                          <Stack direction="row" alignItems="center" spacing={2}>
-                            <Avatar alt={row.name || "Unnamed"} />
-                            <Typography variant="subtitle2" noWrap>
-                              {row.name || "Unnamed"}
-                            </Typography>
-                          </Stack>
+                          {row.projectName}
                         </TableCell>
-                        <TableCell align="left">{row.walletAddress}</TableCell>
-                        <TableCell align="left">{row.email || "Not set"}</TableCell>
-                        <TableCell align="left">
-                          <OperatorRoleMenu data={row} />
-                        </TableCell>
+                        <TableCell align="left">{row.idoPrice}</TableCell>
+                        <TableCell align="left">{row.totalRaise}</TableCell>
+                        <TableCell align="left">{row.tokenName}</TableCell>
+                        <TableCell align="left">{row.tokenNetwork}</TableCell>{" "}
+                        <TableCell align="left">{row.idoNetwork}</TableCell>
                         <TableCell align="right">
-                          <OperatorMoreMenu data={row} />
+                          <PoolMoreMenu data={row} />
                         </TableCell>
                       </TableRow>
                     )
@@ -127,7 +125,7 @@ const Operator = (): JSX.Element => {
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={operators.data?.meta.total || 0}
+            count={pools.data?.meta.total || 0}
             rowsPerPage={rowsPerPage}
             page={page - 1}
             onPageChange={handleChangePage}
@@ -139,4 +137,4 @@ const Operator = (): JSX.Element => {
   )
 }
 
-export default Operator
+export default Pool
