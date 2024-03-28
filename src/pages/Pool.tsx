@@ -1,15 +1,13 @@
 import Page from "@/components/Page"
 import Scrollbar from "@/components/Scrollbar"
+import CreatePoolModal from "@/components/_dashboard/pool/CreatePoolModal"
 import PoolListHead from "@/components/_dashboard/pool/PoolListHead"
 import PoolListToolbar from "@/components/_dashboard/pool/PoolListToolbar"
 import PoolMoreMenu from "@/components/_dashboard/pool/PoolMoreMenu"
 import { HeaderLabel, IUser } from "@/models"
 import { useGetPools } from "@/modules/pool/services/getPools"
-import plusFill from "@iconify/icons-eva/plus-fill"
-import { Icon } from "@iconify/react"
 
 import {
-  Button,
   Card,
   Container,
   Stack,
@@ -22,7 +20,6 @@ import {
   Typography,
 } from "@mui/material"
 import React, { useState } from "react"
-import { NavLink as RouterLink } from "react-router-dom"
 
 const TABLE_HEAD: HeaderLabel[] = [
   { id: "projectName", label: "Project name", alignRight: false },
@@ -73,14 +70,7 @@ const Pool = (): JSX.Element => {
           <Typography variant="h4" gutterBottom>
             Pool
           </Typography>
-          <Button
-            variant="contained"
-            component={RouterLink}
-            to="#"
-            startIcon={<Icon icon={plusFill} />}
-          >
-            New pool
-          </Button>
+          <CreatePoolModal />
         </Stack>
 
         <Card>

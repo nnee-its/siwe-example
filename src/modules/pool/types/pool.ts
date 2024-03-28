@@ -15,6 +15,6 @@ export interface Pool {
   tokenName: string
   tokenNetwork: string
   idoNetwork: string
-  social: PoolSocial[]
+  socials: PoolSocial[]
   description: string
 }

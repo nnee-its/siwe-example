@@ -7,9 +7,9 @@ export interface CreatePoolRequest {
   idoPrice: number
   totalRaise: number
   tokenName: string
-  tokenNetworks: string
+  tokenNetwork: string
   idoNetwork: string
-  social: PoolSocial[]
+  socials: PoolSocial[]
   description: string
 }
 
