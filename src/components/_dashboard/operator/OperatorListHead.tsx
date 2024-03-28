@@ -9,11 +9,10 @@ interface Props {
 
   headLabel: HeaderLabel[]
   onRequestSort
-  onSelectAllClick
 }
 
 const OperatorListHead = (props: Props): JSX.Element => {
-  const { order, orderBy, headLabel, onRequestSort, onSelectAllClick } = props
+  const { order, orderBy, headLabel, onRequestSort } = props
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property)
   }

@@ -1,10 +1,10 @@
-import USER_LIST from "@/_mocks_/user"
 import Page from "@/components/Page"
 import Scrollbar from "@/components/Scrollbar"
 import {
   OperatorListHead,
   OperatorListToolbar,
   OperatorMoreMenu,
+  OperatorRoleMenu,
 } from "@/components/_dashboard/operator"
 import { HeaderLabel, IUser } from "@/models"
 import { useGetOperators } from "@/modules/operator/services/getOperators"
@@ -80,46 +80,18 @@ const Operator = (): JSX.Element => {
     setOrderBy(property)
   }
 
-  const handleSelectAllClick = (event) => {
-    if (event.target.checked) {
-      setSelected(USER_LIST)
-      return
-    }
-    setSelected([])
-  }
-
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name)
-    let newSelected: IUser[] = []
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name)
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1))
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1))
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
-      )
-    }
-    setSelected(newSelected)
-  }
-
   const handleChangePage = (event, newPage) => {
     setPage(newPage)
   }
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10))
-    setPage(0)
+    setPage(1)
   }
 
   const handleFilterByName = (event) => {
     setKeyword(event.target.value)
   }
-
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USER_LIST.length) : 0
 
   return (
     <Page title="Operator | Minimal-UI">
@@ -153,7 +125,6 @@ const Operator = (): JSX.Element => {
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
                   onRequestSort={handleRequestSort}
-                  onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
                   {operators.data?.data?.map((row) => {
@@ -169,18 +140,15 @@ const Operator = (): JSX.Element => {
                         </TableCell>
                         <TableCell align="left">{row.walletAddress}</TableCell>
                         <TableCell align="left">{row.email || "Not set"}</TableCell>
-                        <TableCell align="left">{row.role}</TableCell>
+                        <TableCell align="left">
+                          <OperatorRoleMenu data={row} />
+                        </TableCell>
                         <TableCell align="right">
                           <OperatorMoreMenu data={row} />
                         </TableCell>
                       </TableRow>
                     )
                   })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: 53 * emptyRows }}>
-                      <TableCell colSpan={6} />
-                    </TableRow>
-                  )}
                 </TableBody>
               </Table>
             </TableContainer>

@@ -20,7 +20,7 @@ const OperatorMoreMenu = ({ data }: OperatorMoreMenuProps): JSX.Element => {
   const qc = useQueryClient()
   const deleteOperator = useDeleteOperator()
 
-  const handleDeleteOperator = () => {
+  const handleDelete = () => {
     deleteOperator.mutate(data.walletAddress, {
       onSuccess() {
         toast.success("Deleted operator")
@@ -29,6 +29,7 @@ const OperatorMoreMenu = ({ data }: OperatorMoreMenuProps): JSX.Element => {
         })
       },
     })
+    setIsOpen(false)
   }
 
   return (
@@ -47,7 +48,7 @@ const OperatorMoreMenu = ({ data }: OperatorMoreMenuProps): JSX.Element => {
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
       >
-        <MenuItem sx={{ color: "text.secondary" }} onClick={handleDeleteOperator}>
+        <MenuItem sx={{ color: "text.secondary" }} onClick={handleDelete}>
           <ListItemIcon>
             <Icon icon={trash2Outline} width={24} height={24} />
           </ListItemIcon>
