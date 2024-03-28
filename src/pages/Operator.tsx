@@ -1,7 +1,6 @@
 import USER_LIST from "@/_mocks_/user"
 import Page from "@/components/Page"
 import Scrollbar from "@/components/Scrollbar"
-import SearchNotFound from "@/components/SearchNotFound"
 import {
   OperatorListHead,
   OperatorListToolbar,
@@ -74,7 +73,6 @@ const Operator = (): JSX.Element => {
   const [order, setOrder] = useState("asc")
   const [selected, setSelected] = useState<IUser[]>([])
   const [orderBy, setOrderBy] = useState("name")
-  const [filterName, setFilterName] = useState("")
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc"
@@ -123,10 +121,6 @@ const Operator = (): JSX.Element => {
 
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USER_LIST.length) : 0
 
-  const filteredUsers = applySortFilter(USER_LIST, getComparator(order, orderBy), filterName)
-
-  const isUserNotFound = filteredUsers.length === 0
-
   return (
     <Page title="Operator | Minimal-UI">
       <Container>
@@ -147,7 +141,7 @@ const Operator = (): JSX.Element => {
         <Card>
           <OperatorListToolbar
             numSelected={selected.length}
-            filterName={filterName}
+            filterName={keyword}
             onFilterName={handleFilterByName}
           />
 
@@ -177,7 +171,7 @@ const Operator = (): JSX.Element => {
                         <TableCell align="left">{row.email || "Not set"}</TableCell>
                         <TableCell align="left">{row.role}</TableCell>
                         <TableCell align="right">
-                          <OperatorMoreMenu />
+                          <OperatorMoreMenu data={row} />
                         </TableCell>
                       </TableRow>
                     )
@@ -188,15 +182,6 @@ const Operator = (): JSX.Element => {
                     </TableRow>
                   )}
                 </TableBody>
-                {isUserNotFound && (
-                  <TableBody>
-                    <TableRow>
-                      <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
-                        <SearchNotFound searchQuery={filterName} />
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                )}
               </Table>
             </TableContainer>
           </Scrollbar>

@@ -11,7 +11,6 @@ interface GetOperatorsRequest extends PaginationRequest {
 export async function getOperators(params: GetOperatorsRequest) {
   return (await api.get<PaginationResponse<Operator>>("/operator", { params })).data
 }
-
 export function useGetOperators(params: GetOperatorsRequest) {
   return useQuery({
     queryKey: ["getOperators", params],
