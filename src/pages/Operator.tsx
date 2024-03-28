@@ -1,38 +1,36 @@
-import { filter } from "lodash"
-import { Icon } from "@iconify/react"
-import { HeaderLabel, IUser } from "@/models"
-import { sentenceCase } from "change-case"
-import React, { useState } from "react"
-import plusFill from "@iconify/icons-eva/plus-fill"
-import { Link as RouterLink } from "react-router-dom"
-import {
-  Card,
-  Table,
-  Stack,
-  Avatar,
-  Button,
-  Checkbox,
-  TableRow,
-  TableBody,
-  TableCell,
-  Container,
-  Typography,
-  TableContainer,
-  TablePagination,
-} from "@mui/material"
+import USER_LIST from "@/_mocks_/user"
 import Page from "@/components/Page"
-import Label from "@/components/Label"
 import Scrollbar from "@/components/Scrollbar"
 import SearchNotFound from "@/components/SearchNotFound"
-import { UserListHead, UserListToolbar, UserMoreMenu } from "@/components/_dashboard/user"
-import USER_LIST from "@/_mocks_/user"
+import {
+  OperatorListHead,
+  OperatorListToolbar,
+  OperatorMoreMenu,
+} from "@/components/_dashboard/operator"
+import { HeaderLabel, IUser } from "@/models"
+import { useGetOperators } from "@/modules/operator/services/getOperators"
+import {
+  Avatar,
+  Card,
+  Container,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TablePagination,
+  TableRow,
+  Typography,
+} from "@mui/material"
+import { filter } from "lodash"
+import React, { useState } from "react"
 
 const TABLE_HEAD: HeaderLabel[] = [
   { id: "name", label: "Name", alignRight: false },
-  { id: "company", label: "Company", alignRight: false },
+  { id: "walletAddress", label: "Wallet address", alignRight: false },
+  { id: "email", label: "Email", alignRight: false },
   { id: "role", label: "Role", alignRight: false },
-  { id: "isVerified", label: "Verified", alignRight: false },
-  { id: "status", label: "Status", alignRight: false },
+  { id: "actions", label: "Actions", alignRight: false },
 ]
 
 function descendingComparator(a, b, orderBy) {
@@ -64,13 +62,19 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0])
 }
 
-const User = (): JSX.Element => {
-  const [page, setPage] = useState(0)
+const Operator = (): JSX.Element => {
+  const [page, setPage] = useState(1)
+  const [keyword, setKeyword] = useState("")
+  const [rowsPerPage, setRowsPerPage] = useState(5)
+  const operators = useGetOperators({
+    page,
+    take: rowsPerPage,
+    keyword,
+  })
   const [order, setOrder] = useState("asc")
   const [selected, setSelected] = useState<IUser[]>([])
   const [orderBy, setOrderBy] = useState("name")
   const [filterName, setFilterName] = useState("")
-  const [rowsPerPage, setRowsPerPage] = useState(5)
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc"
@@ -114,7 +118,7 @@ const User = (): JSX.Element => {
   }
 
   const handleFilterByName = (event) => {
-    setFilterName(event.target.value)
+    setKeyword(event.target.value)
   }
 
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USER_LIST.length) : 0
@@ -124,24 +128,24 @@ const User = (): JSX.Element => {
   const isUserNotFound = filteredUsers.length === 0
 
   return (
-    <Page title="User | Minimal-UI">
+    <Page title="Operator | Minimal-UI">
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            User
+            Operator
           </Typography>
-          <Button
+          {/* <Button
             variant="contained"
             component={RouterLink}
             to="#"
             startIcon={<Icon icon={plusFill} />}
           >
             New User
-          </Button>
+          </Button> */}
         </Stack>
 
         <Card>
-          <UserListToolbar
+          <OperatorListToolbar
             numSelected={selected.length}
             filterName={filterName}
             onFilterName={handleFilterByName}
@@ -150,63 +154,34 @@ const User = (): JSX.Element => {
           <Scrollbar>
             <TableContainer sx={{ minWidth: 800 }}>
               <Table>
-                <UserListHead
+                <OperatorListHead
                   order={order}
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
-                  rowCount={USER_LIST.length}
-                  numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {filteredUsers
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row) => {
-                      const { id, name, role, status, company, avatarUrl, isVerified } = row
-                      const isItemSelected = selected.indexOf(name) !== -1
-
-                      return (
-                        <TableRow
-                          hover
-                          key={id}
-                          tabIndex={-1}
-                          role="checkbox"
-                          selected={isItemSelected}
-                          aria-checked={isItemSelected}
-                        >
-                          <TableCell padding="checkbox">
-                            <Checkbox
-                              checked={isItemSelected}
-                              onChange={(event) => handleClick(event, name)}
-                            />
-                          </TableCell>
-                          <TableCell component="th" scope="row" padding="none">
-                            <Stack direction="row" alignItems="center" spacing={2}>
-                              <Avatar alt={name} src={avatarUrl} />
-                              <Typography variant="subtitle2" noWrap>
-                                {name}
-                              </Typography>
-                            </Stack>
-                          </TableCell>
-                          <TableCell align="left">{company}</TableCell>
-                          <TableCell align="left">{role}</TableCell>
-                          <TableCell align="left">{isVerified ? "Yes" : "No"}</TableCell>
-                          <TableCell align="left">
-                            <Label
-                              variant="ghost"
-                              color={(status === "banned" && "error") || "success"}
-                            >
-                              {sentenceCase(status)}
-                            </Label>
-                          </TableCell>
-
-                          <TableCell align="right">
-                            <UserMoreMenu />
-                          </TableCell>
-                        </TableRow>
-                      )
-                    })}
+                  {operators.data?.data?.map((row) => {
+                    return (
+                      <TableRow hover key={row.walletAddress} tabIndex={-1} role="checkbox">
+                        <TableCell component="th" scope="row" padding="none">
+                          <Stack direction="row" alignItems="center" spacing={2}>
+                            <Avatar alt={row.name || "Unnamed"} />
+                            <Typography variant="subtitle2" noWrap>
+                              {row.name || "Unnamed"}
+                            </Typography>
+                          </Stack>
+                        </TableCell>
+                        <TableCell align="left">{row.walletAddress}</TableCell>
+                        <TableCell align="left">{row.email || "Not set"}</TableCell>
+                        <TableCell align="left">{row.role}</TableCell>
+                        <TableCell align="right">
+                          <OperatorMoreMenu />
+                        </TableCell>
+                      </TableRow>
+                    )
+                  })}
                   {emptyRows > 0 && (
                     <TableRow style={{ height: 53 * emptyRows }}>
                       <TableCell colSpan={6} />
@@ -229,9 +204,9 @@ const User = (): JSX.Element => {
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={USER_LIST.length}
+            count={operators.data?.meta.total || 0}
             rowsPerPage={rowsPerPage}
-            page={page}
+            page={page - 1}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
@@ -241,4 +216,4 @@ const User = (): JSX.Element => {
   )
 }
 
-export default User
+export default Operator

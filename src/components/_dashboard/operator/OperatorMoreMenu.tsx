@@ -1,12 +1,12 @@
-import { Icon } from "@iconify/react"
-import React, { useRef, useState } from "react"
 import editFill from "@iconify/icons-eva/edit-fill"
-import { Link as RouterLink } from "react-router-dom"
-import trash2Outline from "@iconify/icons-eva/trash-2-outline"
 import moreVerticalFill from "@iconify/icons-eva/more-vertical-fill"
-import { Menu, MenuItem, IconButton, ListItemIcon, ListItemText } from "@mui/material"
+import trash2Outline from "@iconify/icons-eva/trash-2-outline"
+import { Icon } from "@iconify/react"
+import { IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material"
+import React, { useRef, useState } from "react"
+import { Link as RouterLink } from "react-router-dom"
 
-const UserMoreMenu = (): JSX.Element => {
+const OperatorMoreMenu = (): JSX.Element => {
   const ref = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -44,4 +44,4 @@ const UserMoreMenu = (): JSX.Element => {
   )
 }
 
-export default UserMoreMenu
+export default OperatorMoreMenu

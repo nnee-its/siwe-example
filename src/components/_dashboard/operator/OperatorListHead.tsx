@@ -1,21 +1,19 @@
-import React from "react"
-import { visuallyHidden } from "@mui/utils"
-import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel } from "@mui/material"
 import { HeaderLabel } from "@/models"
+import { Box, TableCell, TableHead, TableRow, TableSortLabel } from "@mui/material"
+import { visuallyHidden } from "@mui/utils"
+import React from "react"
 
 interface Props {
   order?
   orderBy: string
-  rowCount: number
+
   headLabel: HeaderLabel[]
-  numSelected: number
   onRequestSort
   onSelectAllClick
 }
 
-const UserListHead = (props: Props): JSX.Element => {
-  const { order, orderBy, rowCount, headLabel, numSelected, onRequestSort, onSelectAllClick } =
-    props
+const OperatorListHead = (props: Props): JSX.Element => {
+  const { order, orderBy, headLabel, onRequestSort, onSelectAllClick } = props
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property)
   }
@@ -23,13 +21,6 @@ const UserListHead = (props: Props): JSX.Element => {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-          />
-        </TableCell>
         {headLabel.map((headCell) => (
           <TableCell
             key={headCell.id}
@@ -56,4 +47,4 @@ const UserListHead = (props: Props): JSX.Element => {
   )
 }
 
-export default UserListHead
+export default OperatorListHead

@@ -1,14 +1,14 @@
-import { Navigate, Route, Routes } from "react-router-dom"
-import React, { ReactElement } from "react"
-import DashboardLayout from "@/layouts/dashboard"
 import LogoOnlyLayout from "@/layouts/LogoOnlyLayout"
-import Login from "@/pages/Login"
-import Register from "@/pages/Register"
-import DashboardApp from "@/pages/DashboardApp"
-import Products from "@/pages/Products"
+import DashboardLayout from "@/layouts/dashboard"
 import Blog from "@/pages/Blog"
-import User from "@/pages/User"
+import DashboardApp from "@/pages/DashboardApp"
+import Login from "@/pages/Login"
+import Operator from "@/pages/Operator"
 import NotFound from "@/pages/Page404"
+import Products from "@/pages/Products"
+import Register from "@/pages/Register"
+import React, { ReactElement } from "react"
+import { Navigate, Route, Routes } from "react-router-dom"
 
 export const Router = (): ReactElement => {
   return (
@@ -16,7 +16,7 @@ export const Router = (): ReactElement => {
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route path="" element={<Navigate to="/dashboard/app" replace />} />
         <Route path="app" element={<DashboardApp />} />
-        <Route path="user" element={<User />} />
+        <Route path="operator" element={<Operator />} />
         <Route path="products" element={<Products />} />
         <Route path="blog" element={<Blog />} />
       </Route>

@@ -1,19 +1,19 @@
 import React from "react"
 
-import { Icon } from "@iconify/react"
 import searchFill from "@iconify/icons-eva/search-fill"
 import trash2Fill from "@iconify/icons-eva/trash-2-fill"
 import roundFilterList from "@iconify/icons-ic/round-filter-list"
-import { styled } from "@mui/material/styles"
+import { Icon } from "@iconify/react"
 import {
   Box,
+  IconButton,
+  InputAdornment,
+  OutlinedInput,
   Toolbar,
   Tooltip,
-  IconButton,
   Typography,
-  OutlinedInput,
-  InputAdornment,
 } from "@mui/material"
+import { styled } from "@mui/material/styles"
 
 const RootStyle = styled(Toolbar)(({ theme }) => ({
   height: 96,
@@ -41,7 +41,7 @@ interface Props {
   onFilterName
 }
 
-const UserListToolbar = (props: Props): JSX.Element => {
+const OperatorListToolbar = (props: Props): JSX.Element => {
   const { numSelected, filterName, onFilterName } = props
   return (
     <RootStyle
@@ -60,7 +60,7 @@ const UserListToolbar = (props: Props): JSX.Element => {
         <SearchStyle
           value={filterName}
           onChange={onFilterName}
-          placeholder="Search user..."
+          placeholder="Search..."
           startAdornment={
             <InputAdornment position="start">
               <Box component={Icon} icon={searchFill} sx={{ color: "text.disabled" }} />
@@ -86,4 +86,4 @@ const UserListToolbar = (props: Props): JSX.Element => {
   )
 }
 
-export default UserListToolbar
+export default OperatorListToolbar
