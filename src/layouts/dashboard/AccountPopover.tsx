@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react"
 import { Avatar, Box, Button, Divider, IconButton, MenuItem, Typography } from "@mui/material"
 import { alpha } from "@mui/material/styles"
 import React, { useRef, useState } from "react"
-import { Link as RouterLink } from "react-router-dom"
+import { Link as RouterLink, useNavigate } from "react-router-dom"
 
 const MENU_OPTIONS = [
   {
@@ -28,7 +28,8 @@ const MENU_OPTIONS = [
 ]
 
 const AccountPopover = (): JSX.Element => {
-  const { operator } = useOperator()
+  const navigate = useNavigate()
+  const { operator, clear } = useOperator()
   const anchorRef = useRef(null)
   const [open, setOpen] = useState(false)
 
@@ -104,7 +105,7 @@ const AccountPopover = (): JSX.Element => {
         ))}
 
         <Box sx={{ p: 2, pt: 1.5 }}>
-          <Button fullWidth color="inherit" variant="outlined">
+          <Button fullWidth color="inherit" variant="outlined" onClick={clear}>
             Logout
           </Button>
         </Box>

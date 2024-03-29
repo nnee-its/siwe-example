@@ -1,8 +1,9 @@
-import React, { useState } from "react"
-import { Outlet } from "react-router-dom"
-import { styled } from "@mui/material/styles"
 import DashboardNavbar from "@/layouts/dashboard/DashboardNavbar"
 import DashboardSidebar from "@/layouts/dashboard/DashboardSidebar"
+import { useOperator } from "@/store/operator"
+import { styled } from "@mui/material/styles"
+import React, { useState } from "react"
+import { Navigate, Outlet } from "react-router-dom"
 
 const APP_BAR_MOBILE = 64
 const APP_BAR_DESKTOP = 92
@@ -27,9 +28,10 @@ const MainStyle = styled("div")(({ theme }) => ({
 }))
 
 const DashboardLayout = () => {
+  const { operator } = useOperator()
   const [open, setOpen] = useState(false)
 
-  return (
+  return operator ? (
     <RootStyle>
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
@@ -37,6 +39,8 @@ const DashboardLayout = () => {
         <Outlet />
       </MainStyle>
     </RootStyle>
+  ) : (
+    <Navigate to="/login" />
   )
 }
 
