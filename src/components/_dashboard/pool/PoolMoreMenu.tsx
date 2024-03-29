@@ -12,9 +12,10 @@ import { Link as RouterLink } from "react-router-dom"
 
 interface PoolMoreMenuProps {
   data: Pool
+  onSelect(): void
 }
 
-const PoolMoreMenu = ({ data }: PoolMoreMenuProps): JSX.Element => {
+const PoolMoreMenu = ({ data, onSelect }: PoolMoreMenuProps): JSX.Element => {
   const ref = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
   const qc = useQueryClient()
@@ -48,18 +49,18 @@ const PoolMoreMenu = ({ data }: PoolMoreMenuProps): JSX.Element => {
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
       >
+        <MenuItem component={RouterLink} to="#" sx={{ color: "text.secondary" }} onClick={onSelect}>
+          <ListItemIcon>
+            <Icon icon={editFill} width={24} height={24} />
+          </ListItemIcon>
+          <ListItemText primary="Update" primaryTypographyProps={{ variant: "body2" }} />
+        </MenuItem>
+
         <MenuItem sx={{ color: "text.secondary" }} onClick={handleDelete}>
           <ListItemIcon>
             <Icon icon={trash2Outline} width={24} height={24} />
           </ListItemIcon>
           <ListItemText primary="Delete" primaryTypographyProps={{ variant: "body2" }} />
-        </MenuItem>
-
-        <MenuItem component={RouterLink} to="#" sx={{ color: "text.secondary" }}>
-          <ListItemIcon>
-            <Icon icon={editFill} width={24} height={24} />
-          </ListItemIcon>
-          <ListItemText primary="Edit" primaryTypographyProps={{ variant: "body2" }} />
         </MenuItem>
       </Menu>
     </>

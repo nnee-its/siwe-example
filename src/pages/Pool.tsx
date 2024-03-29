@@ -4,8 +4,10 @@ import CreatePoolModal from "@/components/_dashboard/pool/CreatePoolModal"
 import PoolListHead from "@/components/_dashboard/pool/PoolListHead"
 import PoolListToolbar from "@/components/_dashboard/pool/PoolListToolbar"
 import PoolMoreMenu from "@/components/_dashboard/pool/PoolMoreMenu"
-import { HeaderLabel, IUser } from "@/models"
+import UpdatePoolModal from "@/components/_dashboard/pool/UpdatePoolModal"
+import { HeaderLabel } from "@/models"
 import { useGetPools } from "@/modules/pool/services/getPools"
+import { Pool as IPool } from "@/modules/pool/types/pool"
 
 import {
   Card,
@@ -41,8 +43,8 @@ const Pool = (): JSX.Element => {
     keyword,
   })
   const [order, setOrder] = useState("asc")
-  const [selected, setSelected] = useState<IUser[]>([])
   const [orderBy, setOrderBy] = useState("name")
+  const [selectedUpdate, setSelectedUpdate] = useState<IPool | null>(null)
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc"
@@ -74,11 +76,7 @@ const Pool = (): JSX.Element => {
         </Stack>
 
         <Card>
-          <PoolListToolbar
-            numSelected={selected.length}
-            filterName={keyword}
-            onFilterName={handleFilterByName}
-          />
+          <PoolListToolbar numSelected={0} filterName={keyword} onFilterName={handleFilterByName} />
 
           <Scrollbar>
             <TableContainer sx={{ minWidth: 800 }}>
@@ -102,7 +100,7 @@ const Pool = (): JSX.Element => {
                         <TableCell align="left">{row.tokenNetwork}</TableCell>{" "}
                         <TableCell align="left">{row.idoNetwork}</TableCell>
                         <TableCell align="right">
-                          <PoolMoreMenu data={row} />
+                          <PoolMoreMenu data={row} onSelect={() => setSelectedUpdate(row)} />
                         </TableCell>
                       </TableRow>
                     )
@@ -123,6 +121,11 @@ const Pool = (): JSX.Element => {
           />
         </Card>
       </Container>
+      <UpdatePoolModal
+        data={selectedUpdate}
+        open={!!selectedUpdate}
+        onClose={() => setSelectedUpdate(null)}
+      />
     </Page>
   )
 }
